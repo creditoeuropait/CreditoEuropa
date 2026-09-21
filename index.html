@@ -781,22 +781,33 @@
 
                     <div class="input-wrapper">
 
-                        <input type="number"
-                               id="amount"
-                               min="5000"
-                               max="115000"
-                               step="500"
-                               value="20000">
+                        <<div class="field">
 
-                        <span>€</span>
+  <label for="importo">
+    Importo desiderato (€)
+  </label>
 
-                    </div>
+  <input
+    type="number"
+    id="importo"
+    min="5000"
+    max="115000"
+    step="100"
+    value="10000"
+    placeholder="Inserisci l'importo"
+    inputmode="decimal"
+  >
 
-                    <small id="amountInfo">
-                        Da 5.000 € a 115.000 €
-                    </small>
+  <div class="range-value">
+    Importo selezionato:
+    <span id="importoDisplay">10.000 €</span>
+  </div>
 
-                </div>
+  <small id="limiteImporto" style="color:#68738a;">
+    Importo disponibile: 5.000 € – 115.000 €
+  </small>
+
+</div>
 
 
 
