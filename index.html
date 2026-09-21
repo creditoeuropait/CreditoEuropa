@@ -1,1487 +1,1462 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-  <title>CreditoEuropa | Soluzioni di finanziamento</title>
-  <meta name="description" content="CreditoEuropa - Informazioni e soluzioni di finanziamento per privati, lavoratori autonomi e studenti.">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta name="description"
+          content="CreditoEuropa - Informazioni sulle soluzioni di finanziamento, requisiti, durate e simulazione della rata.">
 
-    :root {
-      --blu: #071a3d;
-      --blu-2: #0d2b63;
-      --oro: #c9a227;
-      --oro-chiaro: #e2c45a;
-      --bianco: #ffffff;
-      --grigio: #f5f7fb;
-      --testo: #26334d;
-      --bordo: #e3e7ef;
-      --verde: #17834b;
-    }
+    <meta name="theme-color"
+          content="#092b4c">
 
-    html {
-      scroll-behavior: smooth;
-    }
+    <title>CreditoEuropa | Soluzioni di finanziamento</title>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--grigio);
-      color: var(--testo);
-      line-height: 1.6;
-    }
+    <link rel="icon"
+          href="logo.svg"
+          type="image/svg+xml">
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    .container {
-      width: min(1150px, 92%);
-      margin: auto;
-    }
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-    /* =========================
-       HEADER
-    ========================= */
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
-    header {
-      background: var(--bianco);
-      border-bottom: 1px solid var(--bordo);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    /* Logo creato in codice */
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      font-weight: 800;
-      color: var(--blu);
-      font-size: 24px;
-      letter-spacing: -0.5px;
-    }
-
-    .logo-symbol {
-      width: 42px;
-      height: 42px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--oro);
-      font-size: 30px;
-      font-weight: 900;
-    }
-
-    .logo-symbol::before {
-      content: "";
-      position: absolute;
-      width: 31px;
-      height: 31px;
-      border: 3px solid var(--oro);
-      border-radius: 50%;
-      transform: rotate(25deg);
-      opacity: .9;
-    }
-
-    .logo-symbol span {
-      position: relative;
-      z-index: 2;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      list-style: none;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a {
-      transition: .3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--oro);
-    }
-
-    .nav-button {
-      background: var(--blu);
-      color: white !important;
-      padding: 11px 18px;
-      border-radius: 8px;
-    }
-
-    .nav-button:hover {
-      background: var(--oro);
-      color: var(--blu) !important;
-      transform: translateY(-2px);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      background:
-        linear-gradient(135deg, rgba(7,26,61,.97), rgba(13,43,99,.94));
-      color: white;
-      padding: 85px 0;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .badge {
-      display: inline-block;
-      color: var(--oro-chiaro);
-      border: 1px solid rgba(226,196,90,.45);
-      background: rgba(255,255,255,.05);
-      padding: 7px 13px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 5vw, 62px);
-      line-height: 1.08;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 span {
-      color: var(--oro-chiaro);
-    }
-
-    .hero p {
-      max-width: 650px;
-      color: #dce5f7;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 9px;
-      font-weight: bold;
-      border: 1px solid transparent;
-      transition: .3s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--oro);
-      color: var(--blu);
-    }
-
-    .btn-primary:hover {
-      background: var(--oro-chiaro);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,.2);
-    }
-
-    .btn-light {
-      border-color: rgba(255,255,255,.35);
-      color: white;
-      background: rgba(255,255,255,.06);
-    }
-
-    .btn-light:hover {
-      background: white;
-      color: var(--blu);
-      transform: translateY(-3px);
-    }
-
-    .hero-card {
-      background: white;
-      color: var(--testo);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 25px 60px rgba(0,0,0,.22);
-    }
-
-    .hero-card h3 {
-      color: var(--blu);
-      margin-bottom: 20px;
-      font-size: 22px;
-    }
-
-    .quick-info {
-      display: grid;
-      gap: 13px;
-    }
-
-    .quick-item {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      padding: 13px;
-      background: #f7f8fb;
-      border-radius: 10px;
-    }
-
-    .quick-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 9px;
-      background: #eef1f8;
-      color: var(--oro);
-      display: grid;
-      place-items: center;
-      font-weight: bold;
-    }
-
-    /* =========================
-       SEZIONI
-    ========================= */
-
-    section {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title small {
-      color: var(--oro);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
-    .section-title h2 {
-      color: var(--blu);
-      font-size: 38px;
-      margin: 8px 0 12px;
-    }
-
-    .section-title p {
-      max-width: 700px;
-      margin: auto;
-      color: #657089;
-    }
-
-    /* =========================
-       PRESTITI
-    ========================= */
-
-    .loan-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .loan-card {
-      background: white;
-      border: 1px solid var(--bordo);
-      border-radius: 16px;
-      padding: 28px;
-      transition: .3s ease;
-      box-shadow: 0 7px 25px rgba(7,26,61,.05);
-    }
-
-    .loan-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 18px 40px rgba(7,26,61,.12);
-      border-color: rgba(201,162,39,.45);
-    }
-
-    .loan-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      background: #f5f0dd;
-      color: var(--oro);
-      border-radius: 13px;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .loan-card h3 {
-      color: var(--blu);
-      margin-bottom: 10px;
-      font-size: 21px;
-    }
-
-    .loan-card p {
-      color: #68738a;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .loan-details {
-      border-top: 1px solid var(--bordo);
-      padding-top: 17px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .loan-detail {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      font-size: 14px;
-    }
-
-    .loan-detail strong {
-      color: var(--blu);
-    }
-
-    /* =========================
-       SIMULATORE
-    ========================= */
-
-    .simulator-section {
-      background: #eef2f8;
-    }
-
-    .simulator {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      border-radius: 20px;
-      padding: 35px;
-      box-shadow: 0 15px 45px rgba(7,26,61,.09);
-    }
-
-    .simulator-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .field {
-      margin-bottom: 20px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--blu);
-      margin-bottom: 8px;
-    }
-
-    .field select,
-    .field input {
-      width: 100%;
-      height: 48px;
-      border: 1px solid #d8deea;
-      border-radius: 9px;
-      padding: 0 14px;
-      font-size: 15px;
-      outline: none;
-      background: white;
-      color: var(--testo);
-    }
-
-    .field select:focus,
-    .field input:focus {
-      border-color: var(--oro);
-      box-shadow: 0 0 0 3px rgba(201,162,39,.12);
-    }
-
-    .range-value {
-      color: var(--oro);
-      font-weight: 800;
-      margin-top: 6px;
-    }
-
-    .result {
-      margin-top: 10px;
-      background: linear-gradient(135deg, var(--blu), var(--blu-2));
-      color: white;
-      border-radius: 16px;
-      padding: 25px;
-    }
-
-    .result-title {
-      color: #dce5f7;
-      font-size: 14px;
-    }
-
-    .monthly {
-      font-size: 38px;
-      font-weight: 900;
-      color: var(--oro-chiaro);
-      margin: 4px 0 17px;
-    }
-
-    .result-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 10px;
-    }
-
-    .result-box {
-      background: rgba(255,255,255,.08);
-      padding: 12px;
-      border-radius: 9px;
-    }
-
-    .result-box small {
-      color: #bdc9df;
-      display: block;
-    }
-
-    .result-box strong {
-      display: block;
-      margin-top: 3px;
-    }
-
-    .disclaimer {
-      margin-top: 18px;
-      color: #6b758a;
-      font-size: 12px;
-      text-align: center;
-    }
-
-    /* =========================
-       DOCUMENTI
-    ========================= */
-
-    .docs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .docs-content h2 {
-      color: var(--blu);
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .docs-content p {
-      color: #68738a;
-      margin-bottom: 20px;
-    }
-
-    .check-list {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .check-list li {
-      background: white;
-      padding: 14px;
-      border-radius: 9px;
-      border: 1px solid var(--bordo);
-    }
-
-    .check-list li::before {
-      content: "✓";
-      color: var(--verde);
-      font-weight: bold;
-      margin-right: 10px;
-    }
-
-    .info-box {
-      background: var(--blu);
-      color: white;
-      border-radius: 18px;
-      padding: 30px;
-    }
-
-    .info-box h3 {
-      color: var(--oro-chiaro);
-      margin-bottom: 12px;
-    }
-
-    .info-box p {
-      color: #dce5f7;
-      font-size: 14px;
-    }
-
-    /* =========================
-       CONTATTI
-    ========================= */
-
-    .contact-section {
-      background: white;
-    }
-
-    .contact-card {
-      background: var(--blu);
-      color: white;
-      border-radius: 20px;
-      padding: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .contact-card h2 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .contact-card p {
-      color: #cbd6e9;
-    }
-
-    .contact-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .contact-btn {
-      padding: 13px 20px;
-      border-radius: 9px;
-      font-weight: bold;
-      transition: .3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .contact-btn:hover {
-      transform: translateY(-4px) scale(1.02);
-    }
-
-    .email-btn {
-      background: white;
-      color: var(--blu);
-    }
-
-    .whatsapp-btn {
-      background: #25d366;
-      color: white;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: #04122b;
-      color: #c8d2e5;
-      padding-top: 50px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 40px;
-    }
-
-    footer .logo {
-      color: white;
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      color: #9eacc5;
-      font-size: 14px;
-      max-width: 420px;
-    }
-
-    footer h4 {
-      color: white;
-      margin-bottom: 15px;
-    }
-
-    .footer-links {
-      display: grid;
-      gap: 9px;
-      font-size: 14px;
-    }
-
-    .footer-links a:hover {
-      color: var(--oro-chiaro);
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,.1);
-      text-align: center;
-      padding: 20px;
-      font-size: 13px;
-      color: #8796b0;
-    }
-
-    /* Drapeau italien */
-
-    .italian-flag {
-      width: 100%;
-      height: 13px;
-      display: flex;
-    }
-
-    .flag-green {
-      flex: 1;
-      background: #009246;
-    }
-
-    .flag-white {
-      flex: 1;
-      background: #ffffff;
-    }
-
-    .flag-red {
-      flex: 1;
-      background: #ce2b37;
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 850px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero-grid,
-      .docs {
-        grid-template-columns: 1fr;
-      }
-
-      .loan-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .simulator-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 550px) {
-
-      section {
-        padding: 60px 0;
-      }
-
-      .hero {
-        padding: 60px 0;
-      }
-
-      .hero h1 {
-        font-size: 39px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .simulator,
-      .contact-card {
-        padding: 24px;
-      }
-
-      .section-title h2 {
-        font-size: 30px;
-      }
-
-      .result-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-card h2 {
-        font-size: 27px;
-      }
-    }
-  </style>
+    <link rel="stylesheet"
+          href="style.css">
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
 
-  <header>
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="site-header">
+
     <div class="container navbar">
 
-      <a href="#" class="logo">
-        <div class="logo-symbol">
-          <span>€</span>
-        </div>
-        <span>CreditoEuropa</span>
-      </a>
+        <a href="#home"
+           class="logo-link"
+           aria-label="CreditoEuropa">
 
-      <ul class="nav-links">
-        <li><a href="#prestiti">Prestiti</a></li>
-        <li><a href="#simulatore">Simulatore</a></li>
-        <li><a href="#documenti">Documenti</a></li>
-        <li>
-          <a href="#contatti" class="nav-button">Contatti</a>
-        </li>
-      </ul>
+            <img src="logo.svg"
+                 alt="CreditoEuropa"
+                 class="logo">
 
-    </div>
-  </header>
+        </a>
 
 
-  <!-- =========================
-       HERO
-  ========================== -->
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Apri menu"
+                aria-expanded="false">
 
-  <section class="hero">
+            <span></span>
+            <span></span>
+            <span></span>
 
-    <div class="container hero-grid">
-
-      <div>
-
-        <div class="badge">
-          SOLUZIONI DI FINANZIAMENTO
-        </div>
-
-        <h1>
-          Trova la soluzione
-          <span>più adatta</span>
-          alle tue esigenze.
-        </h1>
-
-        <p>
-          Scopri le nostre principali soluzioni di finanziamento,
-          consulta le informazioni disponibili e utilizza il nostro
-          simulatore per ottenere una stima indicativa della rata.
-        </p>
-
-        <div class="hero-buttons">
-
-          <a href="#simulatore" class="btn btn-primary">
-            Calcola la tua rata
-          </a>
-
-          <a href="#contatti" class="btn btn-light">
-            Contattaci
-          </a>
-
-        </div>
-
-      </div>
+        </button>
 
 
-      <div class="hero-card">
+        <nav class="navigation"
+             id="navigation">
 
-        <h3>CreditoEuropa</h3>
+            <a href="#soluzioni">Soluzioni</a>
 
-        <div class="quick-info">
+            <a href="#come-funziona">Come funziona</a>
 
-          <div class="quick-item">
-            <div class="quick-icon">€</div>
-            <div>
-              <strong>Soluzioni flessibili</strong>
-              <small>Importi e durate variabili</small>
-            </div>
-          </div>
+            <a href="#simulatore">Simulatore</a>
 
-          <div class="quick-item">
-            <div class="quick-icon">✓</div>
-            <div>
-              <strong>Valutazione della richiesta</strong>
-              <small>In base ai requisiti previsti</small>
-            </div>
-          </div>
+            <a href="#requisiti">Requisiti</a>
 
-          <div class="quick-item">
-            <div class="quick-icon">▣</div>
-            <div>
-              <strong>Simulazione online</strong>
-              <small>Calcola una rata indicativa</small>
-            </div>
-          </div>
+            <a href="#faq">FAQ</a>
 
-        </div>
+            <a href="#contatti"
+               class="nav-contact">
 
-      </div>
+                Contattaci
+
+            </a>
+
+        </nav>
 
     </div>
 
-  </section>
+</header>
 
 
-  <!-- =========================
-       PRESTITI
-  ========================== -->
 
-  <section id="prestiti">
+<main>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero"
+         id="home">
+
+    <div class="hero-background"></div>
 
     <div class="container">
 
-      <div class="section-title">
-        <small>Le nostre soluzioni</small>
+        <div class="hero-content">
 
-        <h2>Tipologie di finanziamento</h2>
+            <span class="eyebrow">
+                CREDITOEUROPA
+            </span>
 
-        <p>
-          Scegli la soluzione che corrisponde maggiormente alle tue
-          esigenze e verifica le principali caratteristiche.
-        </p>
-      </div>
+            <h1>
+                Soluzioni di finanziamento
+                <span>pensate per le tue esigenze.</span>
+            </h1>
+
+            <p>
+                Scopri le nostre principali soluzioni di finanziamento,
+                consulta importi, durate e requisiti e utilizza il
+                simulatore per ottenere una stima indicativa della rata.
+            </p>
 
 
-      <div class="loan-grid">
+            <div class="hero-actions">
 
-        <!-- Prestito personale -->
+                <a href="#soluzioni"
+                   class="btn btn-primary">
 
-        <article class="loan-card">
+                    Scopri le soluzioni
+                    <span>→</span>
 
-          <div class="loan-icon">€</div>
+                </a>
 
-          <h3>Prestito personale</h3>
 
-          <p>
-            Una soluzione pensata per esigenze personali e familiari,
-            soggetta alla valutazione della richiesta e dei requisiti.
-          </p>
+                <a href="#simulatore"
+                   class="btn btn-secondary">
 
-          <div class="loan-details">
+                    Calcola la rata
 
-            <div class="loan-detail">
-              <span>Importo</span>
-              <strong>5.000 – 115.000 €</strong>
+                </a>
+
             </div>
 
-            <div class="loan-detail">
-              <span>Durata</span>
-              <strong>24 – 180 mesi</strong>
-            </div>
-
-            <div class="loan-detail">
-              <span>Tasso indicativo</span>
-              <strong>5 – 15%</strong>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- Senza busta paga -->
-
-        <article class="loan-card">
-
-          <div class="loan-icon">◈</div>
-
-          <h3>Prestito senza busta paga</h3>
-
-          <p>
-            Soluzioni per chi dispone di forme di reddito alternative,
-            come attività autonoma, pensione o redditi da locazione.
-          </p>
-
-          <div class="loan-details">
-
-            <div class="loan-detail">
-              <span>Importo</span>
-              <strong>2.000 – 75.000 €</strong>
-            </div>
-
-            <div class="loan-detail">
-              <span>Durata</span>
-              <strong>12 – 120 mesi</strong>
-            </div>
-
-            <div class="loan-detail">
-              <span>Tasso indicativo</span>
-              <strong>3 – 15%</strong>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- Prestito studentesco -->
-
-        <article class="loan-card">
-
-          <div class="loan-icon">🎓</div>
-
-          <h3>Prestito studentesco</h3>
-
-          <p>
-            Una soluzione destinata a studenti per sostenere esigenze
-            legate alla formazione e al percorso di studio.
-          </p>
-
-          <div class="loan-details">
-
-            <div class="loan-detail">
-              <span>Importo</span>
-              <strong>1.000 – 100.000 €</strong>
-            </div>
-
-            <div class="loan-detail">
-              <span>Durata</span>
-              <strong>1 – 15 anni</strong>
-            </div>
-
-            <div class="loan-detail">
-              <span>Tasso indicativo</span>
-              <strong>3 – 15%</strong>
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- =========================
-       SIMULATORE
-  ========================== -->
 
-  <section id="simulatore" class="simulator-section">
+<!-- ==================================================
+     TRUST BAR
+================================================== -->
+
+<section class="trust-bar">
+
+    <div class="container trust-grid">
+
+        <div class="trust-item">
+
+            <div class="trust-icon">€</div>
+
+            <div>
+                <strong>Soluzioni diverse</strong>
+                <span>Per differenti esigenze</span>
+            </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">✓</div>
+
+            <div>
+                <strong>Informazioni chiare</strong>
+                <span>Importi, durate e requisiti</span>
+            </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">▣</div>
+
+            <div>
+                <strong>Simulazione online</strong>
+                <span>Calcolo indicativo della rata</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SOLUZIONI
+================================================== -->
+
+<section class="section"
+         id="soluzioni">
 
     <div class="container">
 
-      <div class="section-title">
+        <div class="section-heading">
 
-        <small>Simulazione</small>
+            <span class="section-label">
+                LE NOSTRE SOLUZIONI
+            </span>
 
-        <h2>Calcola la tua rata</h2>
+            <h2>
+                Scegli la soluzione più adatta
+            </h2>
 
-        <p>
-          Inserisci l'importo e la durata desiderata per ottenere
-          una stima indicativa della rata mensile.
-        </p>
-
-      </div>
-
-
-      <div class="simulator">
-
-        <div class="simulator-grid">
-
-          <div>
-
-            <div class="field">
-
-              <label for="tipoPrestito">
-                Tipo di finanziamento
-              </label>
-
-              <select id="tipoPrestito">
-
-                <option value="personale">
-                  Prestito personale
-                </option>
-
-                <option value="senza">
-                  Prestito senza busta paga
-                </option>
-
-                <option value="studentesco">
-                  Prestito studentesco
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="field">
-
-              <label for="importo">
-                Importo richiesto
-              </label>
-
-              <input
-                type="number"
-                id="importo"
-                min="1000"
-                max="115000"
-                step="500"
-                value="10000"
-              >
-
-              <div class="range-value">
-                <span id="importoDisplay">10.000 €</span>
-              </div>
-
-            </div>
-
-
-            <div class="field">
-
-              <label for="durata">
-                Durata
-              </label>
-
-              <select id="durata">
-
-                <option value="24">24 mesi</option>
-                <option value="36">36 mesi</option>
-                <option value="48">48 mesi</option>
-                <option value="60" selected>60 mesi</option>
-                <option value="72">72 mesi</option>
-                <option value="84">84 mesi</option>
-                <option value="96">96 mesi</option>
-                <option value="120">120 mesi</option>
-                <option value="144">144 mesi</option>
-                <option value="180">180 mesi</option>
-
-              </select>
-
-            </div>
-
-          </div>
-
-
-          <div>
-
-            <div class="result">
-
-              <div class="result-title">
-                Rata mensile indicativa
-              </div>
-
-              <div class="monthly" id="rata">
-                188,71 €
-              </div>
-
-
-              <div class="result-grid">
-
-                <div class="result-box">
-                  <small>Importo</small>
-                  <strong id="resultImporto">
-                    10.000 €
-                  </strong>
-                </div>
-
-                <div class="result-box">
-                  <small>Durata</small>
-                  <strong id="resultDurata">
-                    60 mesi
-                  </strong>
-                </div>
-
-                <div class="result-box">
-                  <small>Tasso simulato</small>
-                  <strong>5% annuo</strong>
-                </div>
-
-                <div class="result-box">
-                  <small>Totale stimato</small>
-                  <strong id="totale">
-                    11.323 €
-                  </strong>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
+            <p>
+                Consulta le caratteristiche principali
+                delle soluzioni disponibili.
+            </p>
 
         </div>
 
 
-        <p class="disclaimer">
-          Simulazione puramente indicativa e non contrattuale.
-          Il calcolo utilizza un tasso fisso del 5% annuo e non
-          costituisce un'offerta di finanziamento né garantisce
-          l'approvazione della richiesta. Le condizioni effettive
-          dipendono dalla valutazione della richiesta e dai requisiti
-          applicabili.
-        </p>
+        <div class="loan-grid">
 
-      </div>
+
+            <!-- PRESTITO PERSONALE -->
+
+            <article class="loan-card">
+
+                <div class="loan-card-top">
+
+                    <div class="loan-icon">
+                        €
+                    </div>
+
+                    <span class="loan-number">
+                        01
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Prestito personale
+                </h3>
+
+                <p class="loan-description">
+                    Una soluzione pensata per esigenze
+                    personali e familiari.
+                </p>
+
+
+                <div class="loan-data">
+
+                    <div class="data-row">
+
+                        <span>Importo</span>
+
+                        <strong>
+                            5.000 € – 115.000 €
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Durata</span>
+
+                        <strong>
+                            24 – 180 mesi
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Tasso simulazione</span>
+
+                        <strong>
+                            5% fisso
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Reddito / eleggibilità</span>
+
+                        <strong>
+                            Redditi regolari e capacità di rimborso
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Documenti principali</span>
+
+                        <strong>
+                            Documento d'identità, codice fiscale,
+                            documentazione reddituale ed estratti conto
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <a href="#simulatore"
+                   class="card-button">
+
+                    Simula la rata
+                    <span>→</span>
+
+                </a>
+
+            </article>
+
+
+
+            <!-- SENZA BUSTA PAGA -->
+
+            <article class="loan-card featured">
+
+                <div class="loan-badge">
+                    SOLUZIONE FLESSIBILE
+                </div>
+
+
+                <div class="loan-card-top">
+
+                    <div class="loan-icon">
+                        ↗
+                    </div>
+
+                    <span class="loan-number">
+                        02
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Prestito senza busta paga
+                </h3>
+
+                <p class="loan-description">
+                    Può prendere in considerazione fonti
+                    di reddito alternative, secondo i criteri applicabili.
+                </p>
+
+
+                <div class="loan-data">
+
+                    <div class="data-row">
+
+                        <span>Importo</span>
+
+                        <strong>
+                            2.000 € – 75.000 €
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Durata</span>
+
+                        <strong>
+                            12 – 120 mesi
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Tasso simulazione</span>
+
+                        <strong>
+                            5% fisso
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Redditi alternativi</span>
+
+                        <strong>
+                            Partita IVA, pensione, locazioni
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Documenti principali</span>
+
+                        <strong>
+                            Documento d'identità, dichiarazione fiscale,
+                            estratti conto e documentazione reddituale
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <a href="#simulatore"
+                   class="card-button">
+
+                    Simula la rata
+                    <span>→</span>
+
+                </a>
+
+            </article>
+
+
+
+            <!-- STUDENTI -->
+
+            <article class="loan-card">
+
+                <div class="loan-card-top">
+
+                    <div class="loan-icon">
+                        🎓
+                    </div>
+
+                    <span class="loan-number">
+                        03
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Prestito per studenti
+                </h3>
+
+                <p class="loan-description">
+                    Una soluzione destinata alle esigenze
+                    finanziarie legate al percorso di studio.
+                </p>
+
+
+                <div class="loan-data">
+
+                    <div class="data-row">
+
+                        <span>Importo</span>
+
+                        <strong>
+                            1.000 € – 100.000 €
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Durata</span>
+
+                        <strong>
+                            12 – 180 mesi
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Tasso simulazione</span>
+
+                        <strong>
+                            5% fisso
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Requisiti</span>
+
+                        <strong>
+                            Studente e criteri previsti dal finanziatore
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Documenti principali</span>
+
+                        <strong>
+                            Documento d'identità, iscrizione,
+                            eventuale garante e documentazione reddituale
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <a href="#simulatore"
+                   class="card-button">
+
+                    Simula la rata
+                    <span>→</span>
+
+                </a>
+
+            </article>
+
+        </div>
+
+
+        <div class="important-note">
+
+            <div class="note-icon">i</div>
+
+            <p>
+                <strong>Informazione importante:</strong>
+                gli importi, le durate e le condizioni indicate
+                sono orientativi. Il tasso del 5% viene utilizzato
+                esclusivamente per la simulazione presente sul sito.
+                Le condizioni effettive possono variare in funzione
+                della valutazione della richiesta e delle condizioni
+                applicabili.
+            </p>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- =========================
-       DOCUMENTI
-  ========================== -->
 
-  <section id="documenti">
+<!-- ==================================================
+     COME FUNZIONA
+================================================== -->
 
-    <div class="container docs">
-
-      <div class="docs-content">
-
-        <small style="color:#c9a227;font-weight:bold;">
-          DOCUMENTAZIONE
-        </small>
-
-        <h2>
-          Preparati alla richiesta
-        </h2>
-
-        <p>
-          La documentazione richiesta può variare in base alla
-          tipologia di finanziamento e alla situazione del richiedente.
-        </p>
-
-        <ul class="check-list">
-
-          <li>Documento di identità valido</li>
-
-          <li>Codice fiscale</li>
-
-          <li>Documentazione relativa al reddito</li>
-
-          <li>Estratti conto bancari, quando richiesti</li>
-
-          <li>Documentazione aggiuntiva relativa alla richiesta</li>
-
-        </ul>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <h3>Valutazione della richiesta</h3>
-
-        <p>
-          Ogni richiesta è soggetta alla verifica delle informazioni
-          fornite e dei requisiti applicabili. La simulazione online
-          ha esclusivamente finalità informative.
-        </p>
-
-        <br>
-
-        <p>
-          Prima di procedere, assicurati di poter fornire informazioni
-          corrette, complete e verificabili.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CONTATTI
-  ========================== -->
-
-  <section id="contatti" class="contact-section">
+<section class="section section-light"
+         id="come-funziona">
 
     <div class="container">
 
-      <div class="contact-card">
+        <div class="section-heading">
 
-        <div>
+            <span class="section-label">
+                IL PROCESSO
+            </span>
 
-          <h2>Hai bisogno di informazioni?</h2>
+            <h2>
+                Come funziona
+            </h2>
 
-          <p>
-            Contattaci per ricevere maggiori informazioni sulle
-            soluzioni disponibili.
-          </p>
-
-        </div>
-
-
-        <div class="contact-buttons">
-
-          <a
-            class="contact-btn email-btn"
-            href="mailto:creditoeuropa.it@gmail.com"
-          >
-            ✉ Email
-          </a>
-
-
-          <a
-            class="contact-btn whatsapp-btn"
-            href="https://wa.me/message/ZGDECNZC6RDRD1"
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp
-          </a>
+            <p>
+                Un percorso semplice per ottenere
+                le informazioni di cui hai bisogno.
+            </p>
 
         </div>
 
-      </div>
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        Consulta
+                    </h3>
+
+                    <p>
+                        Esamina le soluzioni disponibili,
+                        gli importi, le durate e i requisiti.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        Simula
+                    </h3>
+
+                    <p>
+                        Utilizza il simulatore per ottenere
+                        una stima indicativa della rata mensile.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        Contatta
+                    </h3>
+
+                    <p>
+                        Se desideri maggiori informazioni,
+                        puoi contattarci tramite e-mail o WhatsApp.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <div>
+
+                    <h3>
+                        Valutazione
+                    </h3>
+
+                    <p>
+                        La richiesta viene eventualmente
+                        valutata secondo i criteri applicabili.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
 
-  <footer>
+<!-- ==================================================
+     SIMULATORE
+================================================== -->
 
-    <div class="container footer-grid">
+<section class="section simulator-section"
+         id="simulatore">
 
-      <div>
+    <div class="container">
 
-        <div class="logo">
+        <div class="section-heading">
 
-          <div class="logo-symbol">
-            <span>€</span>
-          </div>
+            <span class="section-label">
+                SIMULATORE
+            </span>
 
-          <span>CreditoEuropa</span>
+            <h2>
+                Calcola la tua rata indicativa
+            </h2>
 
-        </div>
-
-        <p>
-          Informazioni e strumenti di simulazione relativi a
-          soluzioni di finanziamento.
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <h4>Navigazione</h4>
-
-        <div class="footer-links">
-
-          <a href="#prestiti">Prestiti</a>
-
-          <a href="#simulatore">Simulatore</a>
-
-          <a href="#documenti">Documenti</a>
-
-          <a href="#contatti">Contatti</a>
+            <p>
+                Seleziona il tipo di prestito, l'importo
+                e la durata.
+            </p>
 
         </div>
 
-      </div>
+
+        <div class="simulator">
 
 
-      <div>
+            <div class="simulator-header">
 
-        <h4>Contatti</h4>
+                <div>
 
-        <div class="footer-links">
+                    <h3>
+                        Simulazione finanziamento
+                    </h3>
 
-          <a href="mailto:creditoeuropa.it@gmail.com">
-            creditoeuropa.it@gmail.com
-          </a>
+                    <p>
+                        Calcolo basato su un tasso annuo fisso del 5%.
+                    </p>
 
-          <a
-            href="https://wa.me/message/ZGDECNZC6RDRD1"
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp
-          </a>
+                </div>
+
+
+                <div class="rate-badge">
+
+                    5% TASSO FISSO
+
+                </div>
+
+            </div>
+
+
+
+            <div class="simulator-form">
+
+
+                <!-- TIPO -->
+
+                <div class="field">
+
+                    <label for="loanType">
+                        Tipo di prestito
+                    </label>
+
+                    <select id="loanType">
+
+                        <option value="personale">
+                            Prestito personale
+                        </option>
+
+                        <option value="senza">
+                            Prestito senza busta paga
+                        </option>
+
+                        <option value="studenti">
+                            Prestito per studenti
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- MONTANT -->
+
+                <div class="field">
+
+                    <label for="amount">
+                        Importo
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input type="number"
+                               id="amount"
+                               min="5000"
+                               max="115000"
+                               step="500"
+                               value="20000">
+
+                        <span>€</span>
+
+                    </div>
+
+                    <small id="amountInfo">
+                        Da 5.000 € a 115.000 €
+                    </small>
+
+                </div>
+
+
+
+                <!-- DUREE -->
+
+                <div class="field">
+
+                    <label for="duration">
+                        Durata
+                    </label>
+
+                    <select id="duration"></select>
+
+                    <small id="durationInfo">
+                        24 – 180 mesi
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RESULT -->
+
+            <div class="simulation-result">
+
+                <div class="main-result">
+
+                    <span>
+                        Rata mensile indicativa
+                    </span>
+
+                    <strong id="monthlyPayment">
+                        € 0,00
+                    </strong>
+
+                </div>
+
+
+                <div class="result-grid">
+
+
+                    <div class="result-item">
+
+                        <span>Importo</span>
+
+                        <strong id="resultAmount">
+                            € 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-item">
+
+                        <span>Durata</span>
+
+                        <strong id="resultDuration">
+                            0 mesi
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-item">
+
+                        <span>Interessi stimati</span>
+
+                        <strong id="resultInterest">
+                            € 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-item">
+
+                        <span>Totale rimborsato</span>
+
+                        <strong id="resultTotal">
+                            € 0,00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <p class="simulation-disclaimer">
+
+                    Simulazione puramente indicativa.
+                    Non costituisce un'offerta contrattuale
+                    né garantisce l'approvazione del finanziamento.
+
+                </p>
+
+            </div>
+
+
+            <div class="simulator-actions">
+
+                <a href="#contatti"
+                   class="btn btn-primary">
+
+                    Richiedi informazioni
+                    <span>→</span>
+
+                </a>
+
+            </div>
 
         </div>
 
-      </div>
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     REQUISITI
+================================================== -->
+
+<section class="section section-light"
+         id="requisiti">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                DOCUMENTAZIONE
+            </span>
+
+            <h2>
+                Requisiti e documenti
+            </h2>
+
+            <p>
+                La documentazione può variare in base
+                alla soluzione e al profilo del richiedente.
+            </p>
+
+        </div>
+
+
+        <div class="requirements-grid">
+
+
+            <div class="requirement-card">
+
+                <div class="requirement-icon">
+                    01
+                </div>
+
+                <h3>
+                    Identificazione
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Documento d'identità valido
+                    </li>
+
+                    <li>
+                        Codice fiscale
+                    </li>
+
+                    <li>
+                        Informazioni anagrafiche aggiornate
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="requirement-card">
+
+                <div class="requirement-icon">
+                    02
+                </div>
+
+                <h3>
+                    Reddito
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Documentazione attestante il reddito
+                    </li>
+
+                    <li>
+                        Dichiarazione dei redditi, quando richiesta
+                    </li>
+
+                    <li>
+                        Estratti conto, quando applicabile
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="requirement-card">
+
+                <div class="requirement-icon">
+                    03
+                </div>
+
+                <h3>
+                    Studenti
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Prova di iscrizione
+                    </li>
+
+                    <li>
+                        Documento d'identità
+                    </li>
+
+                    <li>
+                        Eventuale garante
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="requirement-card">
+
+                <div class="requirement-icon">
+                    04
+                </div>
+
+                <h3>
+                    Valutazione
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Capacità di rimborso
+                    </li>
+
+                    <li>
+                        Situazione finanziaria
+                    </li>
+
+                    <li>
+                        Criteri applicabili
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FAQ
+================================================== -->
+
+<section class="section"
+         id="faq">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                FAQ
+            </span>
+
+            <h2>
+                Domande frequenti
+            </h2>
+
+            <p>
+                Le risposte alle domande più comuni.
+            </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Quali importi posso richiedere?
+                    </span>
+
+                    <b>+</b>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        Gli importi dipendono dalla soluzione
+                        selezionata e dalla valutazione della richiesta.
+                        Consulta le singole schede per gli intervalli
+                        indicativi.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Il tasso del 5% è garantito?
+                    </span>
+
+                    <b>+</b>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        No. Il 5% è utilizzato in questa pagina
+                        esclusivamente come tasso di riferimento
+                        per il calcolo della simulazione.
+                        Le condizioni effettive devono essere
+                        verificate secondo le condizioni applicabili.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Posso richiedere un prestito senza busta paga?
+                    </span>
+
+                    <b>+</b>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        Alcune soluzioni possono prendere in
+                        considerazione fonti di reddito alternative,
+                        come partita IVA, pensione o redditi da locazione,
+                        secondo i criteri applicabili.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Quali documenti sono necessari?
+                    </span>
+
+                    <b>+</b>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        La documentazione può comprendere documento
+                        d'identità, codice fiscale, documentazione
+                        reddituale, estratti conto e altri documenti
+                        eventualmente richiesti.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        La simulazione garantisce l'approvazione?
+                    </span>
+
+                    <b>+</b>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+                        No. La simulazione ha esclusivamente
+                        finalità informative e non costituisce
+                        un'offerta né una garanzia di approvazione.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONTACT
+================================================== -->
+
+<section class="contact-section"
+         id="contatti">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+
+            <div class="contact-content">
+
+                <span class="section-label">
+                    CONTATTI
+                </span>
+
+                <h2>
+                    Hai bisogno di maggiori informazioni?
+                </h2>
+
+                <p>
+                    Dopo aver consultato le informazioni disponibili,
+                    puoi contattarci tramite e-mail o WhatsApp.
+                </p>
+
+            </div>
+
+
+            <div class="contact-actions">
+
+
+                <a href="mailto:creditoeuropa.it@gmail.com"
+                   class="contact-button email-button">
+
+                    <span class="contact-button-icon">
+                        ✉
+                    </span>
+
+                    <span>
+                        Scrivici via e-mail
+                    </span>
+
+                </a>
+
+
+                <a href="https://wa.me/message/ZGDECNZC6RDRD1"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="contact-button whatsapp-button">
+
+                    <span class="contact-button-icon">
+                        ☎
+                    </span>
+
+                    <span>
+                        Contattaci su WhatsApp
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="footer">
+
+    <div class="container footer-content">
+
+
+        <div class="footer-brand">
+
+            <a href="#home">
+
+                <img src="logo.svg"
+                     alt="CreditoEuropa"
+                     class="footer-logo">
+
+            </a>
+
+
+            <p>
+                Informazioni sulle soluzioni di finanziamento,
+                sui requisiti, sulle durate e sulle modalità
+                di richiesta.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Navigazione
+            </h4>
+
+            <a href="#soluzioni">
+                Soluzioni
+            </a>
+
+            <a href="#come-funziona">
+                Come funziona
+            </a>
+
+            <a href="#simulatore">
+                Simulatore
+            </a>
+
+            <a href="#requisiti">
+                Requisiti
+            </a>
+
+            <a href="#faq">
+                FAQ
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Contatti
+            </h4>
+
+            <a href="mailto:creditoeuropa.it@gmail.com">
+                creditoeuropa.it@gmail.com
+            </a>
+
+            <a href="https://wa.me/message/ZGDECNZC6RDRD1"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                WhatsApp
+
+            </a>
+
+        </div>
+
 
     </div>
 
 
-    <div class="copyright">
-      © 2026 CreditoEuropa. Tutti i diritti riservati.
-    </div>
+    <div class="footer-bottom">
 
+        <div class="container">
 
-    <!-- Bandiera italiana a tutta larghezza -->
+            <p>
+                © 2026 CreditoEuropa — Tutti i diritti riservati.
+            </p>
 
-    <div class="italian-flag">
-
-      <div class="flag-green"></div>
-
-      <div class="flag-white"></div>
-
-      <div class="flag-red"></div>
+        </div>
 
     </div>
 
-  </footer>
+
+    <!-- DRAPEAU ITALIEN -->
+
+    <div class="italian-flag"
+         aria-hidden="true">
+
+        <div class="flag-green"></div>
+
+        <div class="flag-white"></div>
+
+        <div class="flag-red"></div>
+
+    </div>
+
+</footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
 
-  <script>
+<!-- ==================================================
+     WHATSAPP FLOTTANTE
+================================================== -->
 
-    const importoInput = document.getElementById("importo");
-    const durataInput = document.getElementById("durata");
+<a href="https://wa.me/message/ZGDECNZC6RDRD1"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="whatsapp-float"
+   aria-label="Contatta CreditoEuropa su WhatsApp">
 
-    const importoDisplay =
-      document.getElementById("importoDisplay");
+    <span>☎</span>
 
-    const rata =
-      document.getElementById("rata");
-
-    const resultImporto =
-      document.getElementById("resultImporto");
-
-    const resultDurata =
-      document.getElementById("resultDurata");
-
-    const totale =
-      document.getElementById("totale");
+</a>
 
 
-    function formatEuro(value) {
 
-      return new Intl.NumberFormat("it-IT", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      }).format(value) + " €";
-
-    }
-
-
-    function formatEuroIntero(value) {
-
-      return new Intl.NumberFormat("it-IT", {
-        maximumFractionDigits: 0
-      }).format(value) + " €";
-
-    }
-
-
-    function calcolaPrestito() {
-
-      let capitale = Number(importoInput.value);
-
-      let mesi = Number(durataInput.value);
-
-      /*
-       * Tasso fisso utilizzato uniquement pour
-       * la simulazione: 5% annuo.
-       */
-
-      const tassoAnnuale = 0.05;
-
-      const tassoMensile = tassoAnnuale / 12;
-
-
-      let rataMensile;
-
-      if (tassoMensile === 0) {
-
-        rataMensile = capitale / mesi;
-
-      } else {
-
-        rataMensile =
-          capitale *
-          (
-            tassoMensile *
-            Math.pow(1 + tassoMensile, mesi)
-          )
-          /
-          (
-            Math.pow(1 + tassoMensile, mesi) - 1
-          );
-
-      }
-
-
-      const totalePagamento =
-        rataMensile * mesi;
-
-
-      importoDisplay.textContent =
-        formatEuroIntero(capitale);
-
-      rata.textContent =
-        formatEuro(rataMensile);
-
-      resultImporto.textContent =
-        formatEuroIntero(capitale);
-
-      resultDurata.textContent =
-        mesi + " mesi";
-
-      totale.textContent =
-        formatEuroIntero(totalePagamento);
-
-    }
-
-
-    importoInput.addEventListener(
-      "input",
-      calcolaPrestito
-    );
-
-    durataInput.addEventListener(
-      "change",
-      calcolaPrestito
-    );
-
-
-    document
-      .getElementById("tipoPrestito")
-      .addEventListener("change", function() {
-
-        /*
-         * Il tasso della simulazione rimane fisso
-         * al 5% per tutte le tipologie.
-         */
-
-        calcolaPrestito();
-
-      });
-
-
-    calcolaPrestito();
-
-  </script>
+<script src="script.js"></script>
 
 </body>
 </html>
