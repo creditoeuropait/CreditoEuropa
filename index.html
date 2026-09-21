@@ -2,63 +2,81 @@
 <html lang="it">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-          content="CreditoEuropa - Informazioni sulle soluzioni di finanziamento, requisiti, durate e simulazione della rata.">
+    <meta
+        name="description"
+        content="CreditoEuropa - Soluzioni di finanziamento e simulazione online."
+    >
 
-    <meta name="theme-color"
-          content="#092b4c">
+    <meta
+        name="keywords"
+        content="CreditoEuropa, prestito personale, finanziamento, prestito senza busta paga, prestito studenti"
+    >
 
-    <title>CreditoEuropa | Soluzioni di finanziamento</title>
+    <meta
+        name="theme-color"
+        content="#092B4C"
+    >
 
-    <link rel="icon"
-          href="logo.svg"
-          type="image/svg+xml">
+    <title>
+        CreditoEuropa | Soluzioni di finanziamento
+    </title>
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <!-- CSS PRINCIPALE -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="style.css">
 </head>
+
 
 <body>
 
 
-<!-- ==================================================
+<!-- =====================================================
      HEADER
-================================================== -->
+===================================================== -->
 
 <header class="site-header">
 
-    <div class="container navbar">
+    <div class="container header-container">
 
-        <a href="#home"
-           class="logo-link"
-           aria-label="CreditoEuropa">
 
-            <img src="logo.svg"
-                 alt="CreditoEuropa"
-                 class="logo">
+        <!-- LOGO -->
+
+        <a
+            href="#home"
+            class="brand"
+            aria-label="CreditoEuropa - Home"
+        >
+
+            <img
+                src="logo.svg"
+                alt="CreditoEuropa"
+                class="logo-img"
+            >
 
         </a>
 
 
-        <button class="menu-toggle"
-                id="menuToggle"
-                aria-label="Apri menu"
-                aria-expanded="false">
+        <!-- MENU -->
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Apri il menu"
+            aria-expanded="false"
+            aria-controls="navigation"
+        >
 
             <span></span>
             <span></span>
@@ -67,24 +85,37 @@
         </button>
 
 
-        <nav class="navigation"
-             id="navigation">
+        <nav
+            class="navigation"
+            id="navigation"
+            aria-label="Navigazione principale"
+        >
 
-            <a href="#soluzioni">Soluzioni</a>
+            <a href="#home">
+                Home
+            </a>
 
-            <a href="#come-funziona">Come funziona</a>
+            <a href="#prestiti">
+                Prestiti
+            </a>
 
-            <a href="#simulatore">Simulatore</a>
+            <a href="#simulatore">
+                Simulatore
+            </a>
 
-            <a href="#requisiti">Requisiti</a>
+            <a href="#documenti">
+                Documenti
+            </a>
 
-            <a href="#faq">FAQ</a>
+            <a href="#faq">
+                FAQ
+            </a>
 
-            <a href="#contatti"
-               class="nav-contact">
-
-                Contattaci
-
+            <a
+                href="#contatti"
+                class="nav-contact"
+            >
+                Contatti
             </a>
 
         </nav>
@@ -95,57 +126,201 @@
 
 
 
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <main>
 
+<section
+    class="hero"
+    id="home"
+>
 
-<!-- ==================================================
-     HERO
-================================================== -->
+    <div class="container hero-grid">
 
-<section class="hero"
-         id="home">
-
-    <div class="hero-background"></div>
-
-    <div class="container">
 
         <div class="hero-content">
 
-            <span class="eyebrow">
+
+            <span class="hero-label">
                 CREDITOEUROPA
             </span>
 
+
             <h1>
+
                 Soluzioni di finanziamento
-                <span>pensate per le tue esigenze.</span>
+                <span>
+                    pensate per le tue esigenze
+                </span>
+
             </h1>
 
+
             <p>
-                Scopri le nostre principali soluzioni di finanziamento,
-                consulta importi, durate e requisiti e utilizza il
-                simulatore per ottenere una stima indicativa della rata.
+
+                Scopri le nostre soluzioni di finanziamento,
+                consulta le principali condizioni e utilizza
+                il nostro simulatore online per ottenere una
+                stima indicativa della rata mensile.
+
             </p>
 
 
-            <div class="hero-actions">
+            <div class="hero-buttons">
 
-                <a href="#soluzioni"
-                   class="btn btn-primary">
 
+                <a
+                    href="#simulatore"
+                    class="btn btn-primary"
+                >
+                    Calcola la tua rata
+                </a>
+
+
+                <a
+                    href="#prestiti"
+                    class="btn btn-secondary"
+                >
                     Scopri le soluzioni
-                    <span>→</span>
-
                 </a>
 
-
-                <a href="#simulatore"
-                   class="btn btn-secondary">
-
-                    Calcola la rata
-
-                </a>
 
             </div>
+
+
+            <div class="hero-features">
+
+
+                <div class="hero-feature">
+
+                    <strong>
+                        3
+                    </strong>
+
+                    <span>
+                        Soluzioni
+                    </span>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <strong>
+                        5%
+                    </strong>
+
+                    <span>
+                        Tasso simulato
+                    </span>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <strong>
+                        Online
+                    </strong>
+
+                    <span>
+                        Simulazione
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CARTE HERO -->
+
+        <div class="hero-card">
+
+
+            <div class="hero-card-top">
+
+                <span>
+                    CreditoEuropa
+                </span>
+
+                <span class="hero-card-symbol">
+                    €
+                </span>
+
+            </div>
+
+
+            <h2>
+                Una simulazione semplice e trasparente
+            </h2>
+
+
+            <p>
+
+                Inserisci l'importo che desideri,
+                scegli la durata e consulta la
+                rata mensile indicativa.
+
+            </p>
+
+
+            <div class="hero-card-list">
+
+
+                <div>
+
+                    <span class="check">
+                        ✓
+                    </span>
+
+                    <span>
+                        Inserisci l'importo desiderato
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <span class="check">
+                        ✓
+                    </span>
+
+                    <span>
+                        Scegli la durata
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <span class="check">
+                        ✓
+                    </span>
+
+                    <span>
+                        Ottieni una stima della rata
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <a
+                href="#simulatore"
+                class="hero-card-button"
+            >
+                Inizia la simulazione →
+            </a>
 
         </div>
 
@@ -155,80 +330,37 @@
 
 
 
-<!-- ==================================================
-     TRUST BAR
-================================================== -->
+<!-- =====================================================
+     PRESTITI
+===================================================== -->
 
-<section class="trust-bar">
-
-    <div class="container trust-grid">
-
-        <div class="trust-item">
-
-            <div class="trust-icon">€</div>
-
-            <div>
-                <strong>Soluzioni diverse</strong>
-                <span>Per differenti esigenze</span>
-            </div>
-
-        </div>
-
-
-        <div class="trust-item">
-
-            <div class="trust-icon">✓</div>
-
-            <div>
-                <strong>Informazioni chiare</strong>
-                <span>Importi, durate e requisiti</span>
-            </div>
-
-        </div>
-
-
-        <div class="trust-item">
-
-            <div class="trust-icon">▣</div>
-
-            <div>
-                <strong>Simulazione online</strong>
-                <span>Calcolo indicativo della rata</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     SOLUZIONI
-================================================== -->
-
-<section class="section"
-         id="soluzioni">
+<section
+    class="loans-section"
+    id="prestiti"
+>
 
     <div class="container">
 
+
         <div class="section-heading">
 
-            <span class="section-label">
+            <span>
                 LE NOSTRE SOLUZIONI
             </span>
 
             <h2>
-                Scegli la soluzione più adatta
+                Scegli il finanziamento più adatto
             </h2>
 
             <p>
+
                 Consulta le caratteristiche principali
-                delle soluzioni disponibili.
+                delle nostre soluzioni di finanziamento.
+
             </p>
 
         </div>
+
 
 
         <div class="loan-grid">
@@ -238,45 +370,53 @@
 
             <article class="loan-card">
 
-                <div class="loan-card-top">
 
-                    <div class="loan-icon">
-                        €
-                    </div>
-
-                    <span class="loan-number">
-                        01
-                    </span>
-
+                <div class="loan-icon">
+                    €
                 </div>
+
+
+                <span class="loan-tag">
+                    PERSONALE
+                </span>
 
 
                 <h3>
                     Prestito personale
                 </h3>
 
-                <p class="loan-description">
+
+                <p>
+
                     Una soluzione pensata per esigenze
-                    personali e familiari.
+                    personali e familiari, soggetta alla
+                    valutazione della richiesta e dei
+                    requisiti applicabili.
+
                 </p>
 
 
-                <div class="loan-data">
+                <div class="loan-details">
 
-                    <div class="data-row">
 
-                        <span>Importo</span>
+                    <div>
+
+                        <span>
+                            Importo
+                        </span>
 
                         <strong>
-                            5.000 € – 115.000 €
+                            5.000 – 115.000 €
                         </strong>
 
                     </div>
 
 
-                    <div class="data-row">
+                    <div>
 
-                        <span>Durata</span>
+                        <span>
+                            Durata
+                        </span>
 
                         <strong>
                             24 – 180 mesi
@@ -285,48 +425,27 @@
                     </div>
 
 
-                    <div class="data-row">
+                    <div>
 
-                        <span>Tasso simulazione</span>
+                        <span>
+                            Tasso indicativo
+                        </span>
 
                         <strong>
-                            5% fisso
+                            5 – 15%
                         </strong>
 
                     </div>
 
-
-                    <div class="data-row">
-
-                        <span>Reddito / eleggibilità</span>
-
-                        <strong>
-                            Redditi regolari e capacità di rimborso
-                        </strong>
-
-                    </div>
-
-
-                    <div class="data-row">
-
-                        <span>Documenti principali</span>
-
-                        <strong>
-                            Documento d'identità, codice fiscale,
-                            documentazione reddituale ed estratti conto
-                        </strong>
-
-                    </div>
 
                 </div>
 
 
-                <a href="#simulatore"
-                   class="card-button">
-
-                    Simula la rata
-                    <span>→</span>
-
+                <a
+                    href="#simulatore"
+                    class="card-button"
+                >
+                    Simula ora →
                 </a>
 
             </article>
@@ -335,52 +454,55 @@
 
             <!-- SENZA BUSTA PAGA -->
 
-            <article class="loan-card featured">
+            <article class="loan-card">
 
-                <div class="loan-badge">
-                    SOLUZIONE FLESSIBILE
+
+                <div class="loan-icon">
+                    ◈
                 </div>
 
 
-                <div class="loan-card-top">
-
-                    <div class="loan-icon">
-                        ↗
-                    </div>
-
-                    <span class="loan-number">
-                        02
-                    </span>
-
-                </div>
+                <span class="loan-tag">
+                    FLESSIBILE
+                </span>
 
 
                 <h3>
                     Prestito senza busta paga
                 </h3>
 
-                <p class="loan-description">
-                    Può prendere in considerazione fonti
-                    di reddito alternative, secondo i criteri applicabili.
+
+                <p>
+
+                    Soluzioni per chi dispone di forme
+                    di reddito alternative, come attività
+                    autonoma, pensione o redditi da
+                    locazione.
+
                 </p>
 
 
-                <div class="loan-data">
+                <div class="loan-details">
 
-                    <div class="data-row">
 
-                        <span>Importo</span>
+                    <div>
+
+                        <span>
+                            Importo
+                        </span>
 
                         <strong>
-                            2.000 € – 75.000 €
+                            2.000 – 75.000 €
                         </strong>
 
                     </div>
 
 
-                    <div class="data-row">
+                    <div>
 
-                        <span>Durata</span>
+                        <span>
+                            Durata
+                        </span>
 
                         <strong>
                             12 – 120 mesi
@@ -389,48 +511,27 @@
                     </div>
 
 
-                    <div class="data-row">
+                    <div>
 
-                        <span>Tasso simulazione</span>
+                        <span>
+                            Tasso indicativo
+                        </span>
 
                         <strong>
-                            5% fisso
+                            3 – 15%
                         </strong>
 
                     </div>
 
-
-                    <div class="data-row">
-
-                        <span>Redditi alternativi</span>
-
-                        <strong>
-                            Partita IVA, pensione, locazioni
-                        </strong>
-
-                    </div>
-
-
-                    <div class="data-row">
-
-                        <span>Documenti principali</span>
-
-                        <strong>
-                            Documento d'identità, dichiarazione fiscale,
-                            estratti conto e documentazione reddituale
-                        </strong>
-
-                    </div>
 
                 </div>
 
 
-                <a href="#simulatore"
-                   class="card-button">
-
-                    Simula la rata
-                    <span>→</span>
-
+                <a
+                    href="#simulatore"
+                    class="card-button"
+                >
+                    Simula ora →
                 </a>
 
             </article>
@@ -441,115 +542,85 @@
 
             <article class="loan-card">
 
-                <div class="loan-card-top">
 
-                    <div class="loan-icon">
-                        🎓
-                    </div>
-
-                    <span class="loan-number">
-                        03
-                    </span>
-
+                <div class="loan-icon">
+                    🎓
                 </div>
+
+
+                <span class="loan-tag">
+                    STUDENTI
+                </span>
 
 
                 <h3>
                     Prestito per studenti
                 </h3>
 
-                <p class="loan-description">
-                    Una soluzione destinata alle esigenze
-                    finanziarie legate al percorso di studio.
+
+                <p>
+
+                    Una soluzione destinata agli studenti
+                    per esigenze legate alla formazione
+                    e al proprio percorso di studio.
+
                 </p>
 
 
-                <div class="loan-data">
+                <div class="loan-details">
 
-                    <div class="data-row">
 
-                        <span>Importo</span>
+                    <div>
+
+                        <span>
+                            Importo
+                        </span>
 
                         <strong>
-                            1.000 € – 100.000 €
+                            1.000 – 100.000 €
                         </strong>
 
                     </div>
 
 
-                    <div class="data-row">
+                    <div>
 
-                        <span>Durata</span>
+                        <span>
+                            Durata
+                        </span>
 
                         <strong>
-                            12 – 180 mesi
+                            1 – 15 anni
                         </strong>
 
                     </div>
 
 
-                    <div class="data-row">
+                    <div>
 
-                        <span>Tasso simulazione</span>
+                        <span>
+                            Tasso indicativo
+                        </span>
 
                         <strong>
-                            5% fisso
+                            3 – 15%
                         </strong>
 
                     </div>
 
-
-                    <div class="data-row">
-
-                        <span>Requisiti</span>
-
-                        <strong>
-                            Studente e criteri previsti dal finanziatore
-                        </strong>
-
-                    </div>
-
-
-                    <div class="data-row">
-
-                        <span>Documenti principali</span>
-
-                        <strong>
-                            Documento d'identità, iscrizione,
-                            eventuale garante e documentazione reddituale
-                        </strong>
-
-                    </div>
 
                 </div>
 
 
-                <a href="#simulatore"
-                   class="card-button">
-
-                    Simula la rata
-                    <span>→</span>
-
+                <a
+                    href="#simulatore"
+                    class="card-button"
+                >
+                    Simula ora →
                 </a>
 
             </article>
 
-        </div>
-
-
-        <div class="important-note">
-
-            <div class="note-icon">i</div>
-
-            <p>
-                <strong>Informazione importante:</strong>
-                gli importi, le durate e le condizioni indicate
-                sono orientativi. Il tasso del 5% viene utilizzato
-                esclusivamente per la simulazione presente sul sito.
-                Le condizioni effettive possono variare in funzione
-                della valutazione della richiesta e delle condizioni
-                applicabili.
-            </p>
 
         </div>
 
@@ -559,199 +630,61 @@
 
 
 
-<!-- ==================================================
-     COME FUNZIONA
-================================================== -->
-
-<section class="section section-light"
-         id="come-funziona">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                IL PROCESSO
-            </span>
-
-            <h2>
-                Come funziona
-            </h2>
-
-            <p>
-                Un percorso semplice per ottenere
-                le informazioni di cui hai bisogno.
-            </p>
-
-        </div>
-
-
-        <div class="steps">
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    01
-                </div>
-
-                <div>
-
-                    <h3>
-                        Consulta
-                    </h3>
-
-                    <p>
-                        Esamina le soluzioni disponibili,
-                        gli importi, le durate e i requisiti.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    02
-                </div>
-
-                <div>
-
-                    <h3>
-                        Simula
-                    </h3>
-
-                    <p>
-                        Utilizza il simulatore per ottenere
-                        una stima indicativa della rata mensile.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    03
-                </div>
-
-                <div>
-
-                    <h3>
-                        Contatta
-                    </h3>
-
-                    <p>
-                        Se desideri maggiori informazioni,
-                        puoi contattarci tramite e-mail o WhatsApp.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    04
-                </div>
-
-                <div>
-
-                    <h3>
-                        Valutazione
-                    </h3>
-
-                    <p>
-                        La richiesta viene eventualmente
-                        valutata secondo i criteri applicabili.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
+<!-- =====================================================
      SIMULATORE
-================================================== -->
+===================================================== -->
 
-<section class="section simulator-section"
-         id="simulatore">
+<section
+    class="simulator-section"
+    id="simulatore"
+>
 
     <div class="container">
 
+
         <div class="section-heading">
 
-            <span class="section-label">
-                SIMULATORE
+            <span>
+                SIMULATORE ONLINE
             </span>
 
             <h2>
-                Calcola la tua rata indicativa
+                Calcola la tua rata
             </h2>
 
             <p>
-                Seleziona il tipo di prestito, l'importo
-                e la durata.
+
+                Inserisci direttamente l'importo che
+                desideri e scegli la durata del
+                finanziamento.
+
             </p>
 
         </div>
+
 
 
         <div class="simulator">
 
 
-            <div class="simulator-header">
-
-                <div>
-
-                    <h3>
-                        Simulazione finanziamento
-                    </h3>
-
-                    <p>
-                        Calcolo basato su un tasso annuo fisso del 5%.
-                    </p>
-
-                </div>
-
-
-                <div class="rate-badge">
-
-                    5% TASSO FISSO
-
-                </div>
-
-            </div>
-
-
+            <!-- FORM -->
 
             <div class="simulator-form">
 
 
                 <!-- TIPO -->
 
-                <div class="field">
+                <div class="form-group">
 
                     <label for="loanType">
-                        Tipo di prestito
+                        Tipo di finanziamento
                     </label>
 
-                    <select id="loanType">
+
+                    <select
+                        id="loanType"
+                        name="loanType"
+                    >
 
                         <option value="personale">
                             Prestito personale
@@ -771,80 +704,126 @@
 
 
 
-                <!-- MONTANT -->
+                <!-- IMPORTO -->
 
-                <div class="field">
+                <div class="form-group">
+
 
                     <label for="amount">
-                        Importo
+                        Importo desiderato (€)
                     </label>
+
 
                     <div class="input-wrapper">
 
-                        <<div class="field">
+                        <input
+                            type="number"
+                            id="amount"
+                            name="amount"
+                            min="1000"
+                            max="115000"
+                            step="100"
+                            value="20000"
+                            inputmode="decimal"
+                            placeholder="Inserisci l'importo"
+                            autocomplete="off"
+                        >
 
-  <label for="importo">
-    Importo desiderato (€)
-  </label>
+                        <span>
+                            €
+                        </span>
 
-  <input
-    type="number"
-    id="importo"
-    min="5000"
-    max="115000"
-    step="100"
-    value="10000"
-    placeholder="Inserisci l'importo"
-    inputmode="decimal"
-  >
+                    </div>
 
-  <div class="range-value">
-    Importo selezionato:
-    <span id="importoDisplay">10.000 €</span>
-  </div>
 
-  <small id="limiteImporto" style="color:#68738a;">
-    Importo disponibile: 5.000 € – 115.000 €
-  </small>
+                    <small
+                        id="amountInfo"
+                        class="field-info"
+                    >
+                        Da 5.000 € a 115.000 €
+                    </small>
 
-</div>
+                </div>
 
 
 
                 <!-- DUREE -->
 
-                <div class="field">
+                <div class="form-group">
+
 
                     <label for="duration">
                         Durata
                     </label>
 
-                    <select id="duration"></select>
 
-                    <small id="durationInfo">
+                    <select
+                        id="duration"
+                        name="duration"
+                    >
+
+                        <option value="60">
+                            60 mesi
+                        </option>
+
+                    </select>
+
+
+                    <small
+                        id="durationInfo"
+                        class="field-info"
+                    >
                         24 – 180 mesi
                     </small>
 
                 </div>
 
+
+
+                <!-- TAUX -->
+
+                <div class="simulation-rate">
+
+
+                    <div>
+
+                        <span>
+                            Tasso utilizzato nella simulazione
+                        </span>
+
+                        <strong>
+                            5% annuo
+                        </strong>
+
+                    </div>
+
+
+                    <span class="rate-icon">
+                        %
+                    </span>
+
+                </div>
+
+
             </div>
 
 
 
-            <!-- RESULT -->
+            <!-- RESULTAT -->
 
             <div class="simulation-result">
 
-                <div class="main-result">
 
-                    <span>
-                        Rata mensile indicativa
-                    </span>
+                <div class="result-label">
+                    Rata mensile indicativa
+                </div>
 
-                    <strong id="monthlyPayment">
-                        € 0,00
-                    </strong>
 
+                <div
+                    class="monthly-payment"
+                    id="monthlyPayment"
+                >
+                    377,53 €
                 </div>
 
 
@@ -853,10 +832,12 @@
 
                     <div class="result-item">
 
-                        <span>Importo</span>
+                        <span>
+                            Importo
+                        </span>
 
                         <strong id="resultAmount">
-                            € 0,00
+                            20.000,00 €
                         </strong>
 
                     </div>
@@ -864,10 +845,12 @@
 
                     <div class="result-item">
 
-                        <span>Durata</span>
+                        <span>
+                            Durata
+                        </span>
 
                         <strong id="resultDuration">
-                            0 mesi
+                            60 mesi
                         </strong>
 
                     </div>
@@ -875,10 +858,12 @@
 
                     <div class="result-item">
 
-                        <span>Interessi stimati</span>
+                        <span>
+                            Interessi stimati
+                        </span>
 
                         <strong id="resultInterest">
-                            € 0,00
+                            2.651,80 €
                         </strong>
 
                     </div>
@@ -886,39 +871,46 @@
 
                     <div class="result-item">
 
-                        <span>Totale rimborsato</span>
+                        <span>
+                            Totale stimato
+                        </span>
 
                         <strong id="resultTotal">
-                            € 0,00
+                            22.651,80 €
                         </strong>
 
                     </div>
+
 
                 </div>
 
 
-                <p class="simulation-disclaimer">
+                <div class="result-note">
 
-                    Simulazione puramente indicativa.
-                    Non costituisce un'offerta contrattuale
-                    né garantisce l'approvazione del finanziamento.
+                    Il risultato è una simulazione indicativa
+                    basata su un tasso fisso del 5% annuo.
 
-                </p>
-
-            </div>
-
-
-            <div class="simulator-actions">
-
-                <a href="#contatti"
-                   class="btn btn-primary">
-
-                    Richiedi informazioni
-                    <span>→</span>
-
-                </a>
+                </div>
 
             </div>
+
+
+        </div>
+
+
+
+        <div class="simulator-disclaimer">
+
+            <strong>
+                Importante:
+            </strong>
+
+            la simulazione è puramente indicativa
+            e non costituisce un'offerta di finanziamento
+            né garantisce l'approvazione della richiesta.
+            Le condizioni effettive possono variare in base
+            alla valutazione della richiesta e ai requisiti
+            applicabili.
 
         </div>
 
@@ -928,175 +920,133 @@
 
 
 
-<!-- ==================================================
-     REQUISITI
-================================================== -->
+<!-- =====================================================
+     DOCUMENTI
+===================================================== -->
 
-<section class="section section-light"
-         id="requisiti">
+<section
+    class="documents-section"
+    id="documenti"
+>
 
-    <div class="container">
+    <div class="container documents-grid">
 
-        <div class="section-heading">
 
-            <span class="section-label">
+        <div class="documents-content">
+
+
+            <span class="section-mini-title">
                 DOCUMENTAZIONE
             </span>
 
+
             <h2>
-                Requisiti e documenti
+                Cosa può essere richiesto
             </h2>
 
+
             <p>
+
                 La documentazione può variare in base
-                alla soluzione e al profilo del richiedente.
+                alla tipologia di finanziamento e alla
+                situazione del richiedente.
+
+            </p>
+
+
+            <ul class="document-list">
+
+
+                <li>
+                    <span>✓</span>
+                    Documento di identità valido
+                </li>
+
+
+                <li>
+                    <span>✓</span>
+                    Codice fiscale
+                </li>
+
+
+                <li>
+                    <span>✓</span>
+                    Documentazione relativa al reddito
+                </li>
+
+
+                <li>
+                    <span>✓</span>
+                    Estratti conto bancari, quando richiesti
+                </li>
+
+
+                <li>
+                    <span>✓</span>
+                    Eventuale documentazione aggiuntiva
+                </li>
+
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="documents-card">
+
+
+            <div class="documents-card-icon">
+                ✓
+            </div>
+
+
+            <h3>
+                Valutazione della richiesta
+            </h3>
+
+
+            <p>
+
+                Ogni richiesta è soggetta alla verifica
+                delle informazioni fornite e dei requisiti
+                applicabili.
+
+            </p>
+
+
+            <p>
+
+                Prima di procedere, assicurati che le
+                informazioni fornite siano corrette,
+                complete e verificabili.
+
             </p>
 
         </div>
 
 
-        <div class="requirements-grid">
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-icon">
-                    01
-                </div>
-
-                <h3>
-                    Identificazione
-                </h3>
-
-                <ul>
-
-                    <li>
-                        Documento d'identità valido
-                    </li>
-
-                    <li>
-                        Codice fiscale
-                    </li>
-
-                    <li>
-                        Informazioni anagrafiche aggiornate
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-icon">
-                    02
-                </div>
-
-                <h3>
-                    Reddito
-                </h3>
-
-                <ul>
-
-                    <li>
-                        Documentazione attestante il reddito
-                    </li>
-
-                    <li>
-                        Dichiarazione dei redditi, quando richiesta
-                    </li>
-
-                    <li>
-                        Estratti conto, quando applicabile
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-icon">
-                    03
-                </div>
-
-                <h3>
-                    Studenti
-                </h3>
-
-                <ul>
-
-                    <li>
-                        Prova di iscrizione
-                    </li>
-
-                    <li>
-                        Documento d'identità
-                    </li>
-
-                    <li>
-                        Eventuale garante
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-icon">
-                    04
-                </div>
-
-                <h3>
-                    Valutazione
-                </h3>
-
-                <ul>
-
-                    <li>
-                        Capacità di rimborso
-                    </li>
-
-                    <li>
-                        Situazione finanziaria
-                    </li>
-
-                    <li>
-                        Criteri applicabili
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-        </div>
-
     </div>
 
 </section>
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      FAQ
-================================================== -->
+===================================================== -->
 
-<section class="section"
-         id="faq">
+<section
+    class="faq-section"
+    id="faq"
+>
 
     <div class="container">
 
+
         <div class="section-heading">
 
-            <span class="section-label">
+            <span>
                 FAQ
             </span>
 
@@ -1105,24 +1055,34 @@
             </h2>
 
             <p>
-                Le risposte alle domande più comuni.
+                Alcune informazioni utili sulle nostre
+                soluzioni e sul simulatore.
             </p>
 
         </div>
 
 
+
         <div class="faq-list">
 
 
+            <!-- FAQ 1 -->
+
             <div class="faq-item">
 
-                <button class="faq-question">
+
+                <button
+                    type="button"
+                    class="faq-question"
+                >
 
                     <span>
-                        Quali importi posso richiedere?
+                        Come funziona il simulatore?
                     </span>
 
-                    <b>+</b>
+                    <span>
+                        +
+                    </span>
 
                 </button>
 
@@ -1130,10 +1090,13 @@
                 <div class="faq-answer">
 
                     <p>
-                        Gli importi dipendono dalla soluzione
-                        selezionata e dalla valutazione della richiesta.
-                        Consulta le singole schede per gli intervalli
-                        indicativi.
+
+                        Seleziona il tipo di finanziamento,
+                        inserisci l'importo desiderato e
+                        scegli la durata. Il sistema calcola
+                        una rata mensile indicativa utilizzando
+                        un tasso fisso del 5% annuo.
+
                     </p>
 
                 </div>
@@ -1142,15 +1105,23 @@
 
 
 
+            <!-- FAQ 2 -->
+
             <div class="faq-item">
 
-                <button class="faq-question">
+
+                <button
+                    type="button"
+                    class="faq-question"
+                >
 
                     <span>
-                        Il tasso del 5% è garantito?
+                        Il risultato del simulatore è definitivo?
                     </span>
 
-                    <b>+</b>
+                    <span>
+                        +
+                    </span>
 
                 </button>
 
@@ -1158,11 +1129,12 @@
                 <div class="faq-answer">
 
                     <p>
-                        No. Il 5% è utilizzato in questa pagina
-                        esclusivamente come tasso di riferimento
-                        per il calcolo della simulazione.
-                        Le condizioni effettive devono essere
-                        verificate secondo le condizioni applicabili.
+
+                        No. Il risultato è esclusivamente
+                        indicativo e non costituisce un'offerta
+                        contrattuale né una garanzia di
+                        approvazione.
+
                     </p>
 
                 </div>
@@ -1171,15 +1143,23 @@
 
 
 
+            <!-- FAQ 3 -->
+
             <div class="faq-item">
 
-                <button class="faq-question">
+
+                <button
+                    type="button"
+                    class="faq-question"
+                >
 
                     <span>
-                        Posso richiedere un prestito senza busta paga?
+                        Quali documenti possono essere richiesti?
                     </span>
 
-                    <b>+</b>
+                    <span>
+                        +
+                    </span>
 
                 </button>
 
@@ -1187,10 +1167,14 @@
                 <div class="faq-answer">
 
                     <p>
-                        Alcune soluzioni possono prendere in
-                        considerazione fonti di reddito alternative,
-                        come partita IVA, pensione o redditi da locazione,
-                        secondo i criteri applicabili.
+
+                        La documentazione dipende dalla
+                        tipologia di finanziamento e dalla
+                        situazione del richiedente. Possono
+                        essere richiesti documento di identità,
+                        codice fiscale e documentazione relativa
+                        al reddito.
+
                     </p>
 
                 </div>
@@ -1199,15 +1183,23 @@
 
 
 
+            <!-- FAQ 4 -->
+
             <div class="faq-item">
 
-                <button class="faq-question">
+
+                <button
+                    type="button"
+                    class="faq-question"
+                >
 
                     <span>
-                        Quali documenti sono necessari?
+                        Posso contattare CreditoEuropa?
                     </span>
 
-                    <b>+</b>
+                    <span>
+                        +
+                    </span>
 
                 </button>
 
@@ -1215,37 +1207,11 @@
                 <div class="faq-answer">
 
                     <p>
-                        La documentazione può comprendere documento
-                        d'identità, codice fiscale, documentazione
-                        reddituale, estratti conto e altri documenti
-                        eventualmente richiesti.
-                    </p>
 
-                </div>
+                        Sì. Puoi utilizzare l'indirizzo
+                        e-mail oppure il collegamento WhatsApp
+                        indicato nella sezione contatti.
 
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span>
-                        La simulazione garantisce l'approvazione?
-                    </span>
-
-                    <b>+</b>
-
-                </button>
-
-
-                <div class="faq-answer">
-
-                    <p>
-                        No. La simulazione ha esclusivamente
-                        finalità informative e non costituisce
-                        un'offerta né una garanzia di approvazione.
                     </p>
 
                 </div>
@@ -1261,68 +1227,74 @@
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      CONTACT
-================================================== -->
+===================================================== -->
 
-<section class="contact-section"
-         id="contatti">
+<section
+    class="contact-section"
+    id="contatti"
+>
 
     <div class="container">
 
-        <div class="contact-box">
+
+        <div class="contact-card">
 
 
             <div class="contact-content">
 
-                <span class="section-label">
+
+                <span>
                     CONTATTI
                 </span>
 
+
                 <h2>
-                    Hai bisogno di maggiori informazioni?
+                    Hai bisogno di informazioni?
                 </h2>
 
+
                 <p>
-                    Dopo aver consultato le informazioni disponibili,
-                    puoi contattarci tramite e-mail o WhatsApp.
+
+                    Contattaci per ricevere maggiori
+                    informazioni sulle soluzioni disponibili.
+
                 </p>
 
             </div>
 
 
-            <div class="contact-actions">
+
+            <div class="contact-buttons">
 
 
-                <a href="mailto:creditoeuropa.it@gmail.com"
-                   class="contact-button email-button">
+                <a
+                    href="mailto:creditoeuropa.it@gmail.com"
+                    class="contact-button email-button"
+                >
 
-                    <span class="contact-button-icon">
+                    <span>
                         ✉
                     </span>
 
-                    <span>
-                        Scrivici via e-mail
-                    </span>
+                    Email
 
                 </a>
 
 
-                <a href="https://wa.me/message/ZGDECNZC6RDRD1"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="contact-button whatsapp-button">
-
-                    <span class="contact-button-icon">
-                        ☎
-                    </span>
+                <a
+                    href="https://wa.me/message/ZGDECNZC6RDRD1"
+                    class="contact-button whatsapp-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
 
                     <span>
-                        Contattaci su WhatsApp
+                        WhatsApp
                     </span>
 
                 </a>
-
 
             </div>
 
@@ -1337,56 +1309,69 @@
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      FOOTER
-================================================== -->
+===================================================== -->
 
-<footer class="footer">
+<footer class="site-footer">
 
-    <div class="container footer-content">
 
+    <div class="container footer-grid">
+
+
+        <!-- COLONNE 1 -->
 
         <div class="footer-brand">
 
-            <a href="#home">
 
-                <img src="logo.svg"
-                     alt="CreditoEuropa"
-                     class="footer-logo">
+            <a
+                href="#home"
+                class="footer-logo"
+            >
+
+                <img
+                    src="logo.svg"
+                    alt="CreditoEuropa"
+                >
 
             </a>
 
 
             <p>
-                Informazioni sulle soluzioni di finanziamento,
-                sui requisiti, sulle durate e sulle modalità
-                di richiesta.
+
+                Informazioni e strumenti di simulazione
+                relativi a soluzioni di finanziamento.
+
             </p>
 
         </div>
 
 
 
+        <!-- COLONNE 2 -->
+
         <div class="footer-column">
 
-            <h4>
-                Navigazione
-            </h4>
 
-            <a href="#soluzioni">
-                Soluzioni
+            <h3>
+                Navigazione
+            </h3>
+
+
+            <a href="#home">
+                Home
             </a>
 
-            <a href="#come-funziona">
-                Come funziona
+            <a href="#prestiti">
+                Prestiti
             </a>
 
             <a href="#simulatore">
                 Simulatore
             </a>
 
-            <a href="#requisiti">
-                Requisiti
+            <a href="#documenti">
+                Documenti
             </a>
 
             <a href="#faq">
@@ -1397,22 +1382,27 @@
 
 
 
+        <!-- COLONNE 3 -->
+
         <div class="footer-column">
 
-            <h4>
+
+            <h3>
                 Contatti
-            </h4>
+            </h3>
+
 
             <a href="mailto:creditoeuropa.it@gmail.com">
                 creditoeuropa.it@gmail.com
             </a>
 
-            <a href="https://wa.me/message/ZGDECNZC6RDRD1"
-               target="_blank"
-               rel="noopener noreferrer">
 
+            <a
+                href="https://wa.me/message/ZGDECNZC6RDRD1"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 WhatsApp
-
             </a>
 
         </div>
@@ -1421,53 +1411,48 @@
     </div>
 
 
+
     <div class="footer-bottom">
 
-        <div class="container">
 
-            <p>
-                © 2026 CreditoEuropa — Tutti i diritti riservati.
-            </p>
+        <p>
+            © 2026 CreditoEuropa. Tutti i diritti riservati.
+        </p>
 
-        </div>
 
     </div>
 
 
-    <!-- DRAPEAU ITALIEN -->
 
-    <div class="italian-flag"
-         aria-hidden="true">
+    <!-- =================================================
+         DRAPEAU ITALIEN
+    ================================================== -->
 
-        <div class="flag-green"></div>
+    <div
+        class="italian-flag"
+        aria-label="Bandiera italiana"
+    >
 
-        <div class="flag-white"></div>
+        <span class="flag-green"></span>
 
-        <div class="flag-red"></div>
+        <span class="flag-white"></span>
+
+        <span class="flag-red"></span>
 
     </div>
+
 
 </footer>
 
 
 
-<!-- ==================================================
-     WHATSAPP FLOTTANTE
-================================================== -->
-
-<a href="https://wa.me/message/ZGDECNZC6RDRD1"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="whatsapp-float"
-   aria-label="Contatta CreditoEuropa su WhatsApp">
-
-    <span>☎</span>
-
-</a>
-
-
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
