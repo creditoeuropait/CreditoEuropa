@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CreditoEuropa | Soluzioni di finanziamento</title>
+  <meta name="description" content="CreditoEuropa - Informazioni e soluzioni di finanziamento per privati, lavoratori autonomi e studenti.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blu: #071a3d;
+      --blu-2: #0d2b63;
+      --oro: #c9a227;
+      --oro-chiaro: #e2c45a;
+      --bianco: #ffffff;
+      --grigio: #f5f7fb;
+      --testo: #26334d;
+      --bordo: #e3e7ef;
+      --verde: #17834b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--grigio);
+      color: var(--testo);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      background: var(--bianco);
+      border-bottom: 1px solid var(--bordo);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    /* Logo creato in codice */
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      color: var(--blu);
+      font-size: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-symbol {
+      width: 42px;
+      height: 42px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--oro);
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .logo-symbol::before {
+      content: "";
+      position: absolute;
+      width: 31px;
+      height: 31px;
+      border: 3px solid var(--oro);
+      border-radius: 50%;
+      transform: rotate(25deg);
+      opacity: .9;
+    }
+
+    .logo-symbol span {
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: .3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--oro);
+    }
+
+    .nav-button {
+      background: var(--blu);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 8px;
+    }
+
+    .nav-button:hover {
+      background: var(--oro);
+      color: var(--blu) !important;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(7,26,61,.97), rgba(13,43,99,.94));
+      color: white;
+      padding: 85px 0;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .badge {
+      display: inline-block;
+      color: var(--oro-chiaro);
+      border: 1px solid rgba(226,196,90,.45);
+      background: rgba(255,255,255,.05);
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--oro-chiaro);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #dce5f7;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 9px;
+      font-weight: bold;
+      border: 1px solid transparent;
+      transition: .3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--oro);
+      color: var(--blu);
+    }
+
+    .btn-primary:hover {
+      background: var(--oro-chiaro);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    }
+
+    .btn-light {
+      border-color: rgba(255,255,255,.35);
+      color: white;
+      background: rgba(255,255,255,.06);
+    }
+
+    .btn-light:hover {
+      background: white;
+      color: var(--blu);
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      background: white;
+      color: var(--testo);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,.22);
+    }
+
+    .hero-card h3 {
+      color: var(--blu);
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .quick-info {
+      display: grid;
+      gap: 13px;
+    }
+
+    .quick-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 13px;
+      background: #f7f8fb;
+      border-radius: 10px;
+    }
+
+    .quick-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: #eef1f8;
+      color: var(--oro);
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+    }
+
+    /* =========================
+       SEZIONI
+    ========================= */
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title small {
+      color: var(--oro);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .section-title h2 {
+      color: var(--blu);
+      font-size: 38px;
+      margin: 8px 0 12px;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: #657089;
+    }
+
+    /* =========================
+       PRESTITI
+    ========================= */
+
+    .loan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .loan-card {
+      background: white;
+      border: 1px solid var(--bordo);
+      border-radius: 16px;
+      padding: 28px;
+      transition: .3s ease;
+      box-shadow: 0 7px 25px rgba(7,26,61,.05);
+    }
+
+    .loan-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 40px rgba(7,26,61,.12);
+      border-color: rgba(201,162,39,.45);
+    }
+
+    .loan-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      background: #f5f0dd;
+      color: var(--oro);
+      border-radius: 13px;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .loan-card h3 {
+      color: var(--blu);
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .loan-card p {
+      color: #68738a;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .loan-details {
+      border-top: 1px solid var(--bordo);
+      padding-top: 17px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .loan-detail {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      font-size: 14px;
+    }
+
+    .loan-detail strong {
+      color: var(--blu);
+    }
+
+    /* =========================
+       SIMULATORE
+    ========================= */
+
+    .simulator-section {
+      background: #eef2f8;
+    }
+
+    .simulator {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 15px 45px rgba(7,26,61,.09);
+    }
+
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--blu);
+      margin-bottom: 8px;
+    }
+
+    .field select,
+    .field input {
+      width: 100%;
+      height: 48px;
+      border: 1px solid #d8deea;
+      border-radius: 9px;
+      padding: 0 14px;
+      font-size: 15px;
+      outline: none;
+      background: white;
+      color: var(--testo);
+    }
+
+    .field select:focus,
+    .field input:focus {
+      border-color: var(--oro);
+      box-shadow: 0 0 0 3px rgba(201,162,39,.12);
+    }
+
+    .range-value {
+      color: var(--oro);
+      font-weight: 800;
+      margin-top: 6px;
+    }
+
+    .result {
+      margin-top: 10px;
+      background: linear-gradient(135deg, var(--blu), var(--blu-2));
+      color: white;
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .result-title {
+      color: #dce5f7;
+      font-size: 14px;
+    }
+
+    .monthly {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--oro-chiaro);
+      margin: 4px 0 17px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 10px;
+    }
+
+    .result-box {
+      background: rgba(255,255,255,.08);
+      padding: 12px;
+      border-radius: 9px;
+    }
+
+    .result-box small {
+      color: #bdc9df;
+      display: block;
+    }
+
+    .result-box strong {
+      display: block;
+      margin-top: 3px;
+    }
+
+    .disclaimer {
+      margin-top: 18px;
+      color: #6b758a;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* =========================
+       DOCUMENTI
+    ========================= */
+
+    .docs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .docs-content h2 {
+      color: var(--blu);
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .docs-content p {
+      color: #68738a;
+      margin-bottom: 20px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-list li {
+      background: white;
+      padding: 14px;
+      border-radius: 9px;
+      border: 1px solid var(--bordo);
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--verde);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .info-box {
+      background: var(--blu);
+      color: white;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .info-box h3 {
+      color: var(--oro-chiaro);
+      margin-bottom: 12px;
+    }
+
+    .info-box p {
+      color: #dce5f7;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CONTATTI
+    ========================= */
+
+    .contact-section {
+      background: white;
+    }
+
+    .contact-card {
+      background: var(--blu);
+      color: white;
+      border-radius: 20px;
+      padding: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .contact-card h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: #cbd6e9;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      padding: 13px 20px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: .3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .email-btn {
+      background: white;
+      color: var(--blu);
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      color: white;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #04122b;
+      color: #c8d2e5;
+      padding-top: 50px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+
+    footer .logo {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #9eacc5;
+      font-size: 14px;
+      max-width: 420px;
+    }
+
+    footer h4 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 9px;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: var(--oro-chiaro);
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #8796b0;
+    }
+
+    /* Drapeau italien */
+
+    .italian-flag {
+      width: 100%;
+      height: 13px;
+      display: flex;
+    }
+
+    .flag-green {
+      flex: 1;
+      background: #009246;
+    }
+
+    .flag-white {
+      flex: 1;
+      background: #ffffff;
+    }
+
+    .flag-red {
+      flex: 1;
+      background: #ce2b37;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .docs {
+        grid-template-columns: 1fr;
+      }
+
+      .loan-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .simulator-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      section {
+        padding: 60px 0;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .simulator,
+      .contact-card {
+        padding: 24px;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card h2 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <div class="container navbar">
+
+      <a href="#" class="logo">
+        <div class="logo-symbol">
+          <span>€</span>
+        </div>
+        <span>CreditoEuropa</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#prestiti">Prestiti</a></li>
+        <li><a href="#simulatore">Simulatore</a></li>
+        <li><a href="#documenti">Documenti</a></li>
+        <li>
+          <a href="#contatti" class="nav-button">Contatti</a>
+        </li>
+      </ul>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="badge">
+          SOLUZIONI DI FINANZIAMENTO
+        </div>
+
+        <h1>
+          Trova la soluzione
+          <span>più adatta</span>
+          alle tue esigenze.
+        </h1>
+
+        <p>
+          Scopri le nostre principali soluzioni di finanziamento,
+          consulta le informazioni disponibili e utilizza il nostro
+          simulatore per ottenere una stima indicativa della rata.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#simulatore" class="btn btn-primary">
+            Calcola la tua rata
+          </a>
+
+          <a href="#contatti" class="btn btn-light">
+            Contattaci
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <h3>CreditoEuropa</h3>
+
+        <div class="quick-info">
+
+          <div class="quick-item">
+            <div class="quick-icon">€</div>
+            <div>
+              <strong>Soluzioni flessibili</strong>
+              <small>Importi e durate variabili</small>
+            </div>
+          </div>
+
+          <div class="quick-item">
+            <div class="quick-icon">✓</div>
+            <div>
+              <strong>Valutazione della richiesta</strong>
+              <small>In base ai requisiti previsti</small>
+            </div>
+          </div>
+
+          <div class="quick-item">
+            <div class="quick-icon">▣</div>
+            <div>
+              <strong>Simulazione online</strong>
+              <small>Calcola una rata indicativa</small>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PRESTITI
+  ========================== -->
+
+  <section id="prestiti">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Le nostre soluzioni</small>
+
+        <h2>Tipologie di finanziamento</h2>
+
+        <p>
+          Scegli la soluzione che corrisponde maggiormente alle tue
+          esigenze e verifica le principali caratteristiche.
+        </p>
+      </div>
+
+
+      <div class="loan-grid">
+
+        <!-- Prestito personale -->
+
+        <article class="loan-card">
+
+          <div class="loan-icon">€</div>
+
+          <h3>Prestito personale</h3>
+
+          <p>
+            Una soluzione pensata per esigenze personali e familiari,
+            soggetta alla valutazione della richiesta e dei requisiti.
+          </p>
+
+          <div class="loan-details">
+
+            <div class="loan-detail">
+              <span>Importo</span>
+              <strong>5.000 – 115.000 €</strong>
+            </div>
+
+            <div class="loan-detail">
+              <span>Durata</span>
+              <strong>24 – 180 mesi</strong>
+            </div>
+
+            <div class="loan-detail">
+              <span>Tasso indicativo</span>
+              <strong>5 – 15%</strong>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- Senza busta paga -->
+
+        <article class="loan-card">
+
+          <div class="loan-icon">◈</div>
+
+          <h3>Prestito senza busta paga</h3>
+
+          <p>
+            Soluzioni per chi dispone di forme di reddito alternative,
+            come attività autonoma, pensione o redditi da locazione.
+          </p>
+
+          <div class="loan-details">
+
+            <div class="loan-detail">
+              <span>Importo</span>
+              <strong>2.000 – 75.000 €</strong>
+            </div>
+
+            <div class="loan-detail">
+              <span>Durata</span>
+              <strong>12 – 120 mesi</strong>
+            </div>
+
+            <div class="loan-detail">
+              <span>Tasso indicativo</span>
+              <strong>3 – 15%</strong>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- Prestito studentesco -->
+
+        <article class="loan-card">
+
+          <div class="loan-icon">🎓</div>
+
+          <h3>Prestito studentesco</h3>
+
+          <p>
+            Una soluzione destinata a studenti per sostenere esigenze
+            legate alla formazione e al percorso di studio.
+          </p>
+
+          <div class="loan-details">
+
+            <div class="loan-detail">
+              <span>Importo</span>
+              <strong>1.000 – 100.000 €</strong>
+            </div>
+
+            <div class="loan-detail">
+              <span>Durata</span>
+              <strong>1 – 15 anni</strong>
+            </div>
+
+            <div class="loan-detail">
+              <span>Tasso indicativo</span>
+              <strong>3 – 15%</strong>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SIMULATORE
+  ========================== -->
+
+  <section id="simulatore" class="simulator-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <small>Simulazione</small>
+
+        <h2>Calcola la tua rata</h2>
+
+        <p>
+          Inserisci l'importo e la durata desiderata per ottenere
+          una stima indicativa della rata mensile.
+        </p>
+
+      </div>
+
+
+      <div class="simulator">
+
+        <div class="simulator-grid">
+
+          <div>
+
+            <div class="field">
+
+              <label for="tipoPrestito">
+                Tipo di finanziamento
+              </label>
+
+              <select id="tipoPrestito">
+
+                <option value="personale">
+                  Prestito personale
+                </option>
+
+                <option value="senza">
+                  Prestito senza busta paga
+                </option>
+
+                <option value="studentesco">
+                  Prestito studentesco
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="importo">
+                Importo richiesto
+              </label>
+
+              <input
+                type="number"
+                id="importo"
+                min="1000"
+                max="115000"
+                step="500"
+                value="10000"
+              >
+
+              <div class="range-value">
+                <span id="importoDisplay">10.000 €</span>
+              </div>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="durata">
+                Durata
+              </label>
+
+              <select id="durata">
+
+                <option value="24">24 mesi</option>
+                <option value="36">36 mesi</option>
+                <option value="48">48 mesi</option>
+                <option value="60" selected>60 mesi</option>
+                <option value="72">72 mesi</option>
+                <option value="84">84 mesi</option>
+                <option value="96">96 mesi</option>
+                <option value="120">120 mesi</option>
+                <option value="144">144 mesi</option>
+                <option value="180">180 mesi</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="result">
+
+              <div class="result-title">
+                Rata mensile indicativa
+              </div>
+
+              <div class="monthly" id="rata">
+                188,71 €
+              </div>
+
+
+              <div class="result-grid">
+
+                <div class="result-box">
+                  <small>Importo</small>
+                  <strong id="resultImporto">
+                    10.000 €
+                  </strong>
+                </div>
+
+                <div class="result-box">
+                  <small>Durata</small>
+                  <strong id="resultDurata">
+                    60 mesi
+                  </strong>
+                </div>
+
+                <div class="result-box">
+                  <small>Tasso simulato</small>
+                  <strong>5% annuo</strong>
+                </div>
+
+                <div class="result-box">
+                  <small>Totale stimato</small>
+                  <strong id="totale">
+                    11.323 €
+                  </strong>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <p class="disclaimer">
+          Simulazione puramente indicativa e non contrattuale.
+          Il calcolo utilizza un tasso fisso del 5% annuo e non
+          costituisce un'offerta di finanziamento né garantisce
+          l'approvazione della richiesta. Le condizioni effettive
+          dipendono dalla valutazione della richiesta e dai requisiti
+          applicabili.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       DOCUMENTI
+  ========================== -->
+
+  <section id="documenti">
+
+    <div class="container docs">
+
+      <div class="docs-content">
+
+        <small style="color:#c9a227;font-weight:bold;">
+          DOCUMENTAZIONE
+        </small>
+
+        <h2>
+          Preparati alla richiesta
+        </h2>
+
+        <p>
+          La documentazione richiesta può variare in base alla
+          tipologia di finanziamento e alla situazione del richiedente.
+        </p>
+
+        <ul class="check-list">
+
+          <li>Documento di identità valido</li>
+
+          <li>Codice fiscale</li>
+
+          <li>Documentazione relativa al reddito</li>
+
+          <li>Estratti conto bancari, quando richiesti</li>
+
+          <li>Documentazione aggiuntiva relativa alla richiesta</li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="info-box">
+
+        <h3>Valutazione della richiesta</h3>
+
+        <p>
+          Ogni richiesta è soggetta alla verifica delle informazioni
+          fornite e dei requisiti applicabili. La simulazione online
+          ha esclusivamente finalità informative.
+        </p>
+
+        <br>
+
+        <p>
+          Prima di procedere, assicurati di poter fornire informazioni
+          corrette, complete e verificabili.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTATTI
+  ========================== -->
+
+  <section id="contatti" class="contact-section">
+
+    <div class="container">
+
+      <div class="contact-card">
+
+        <div>
+
+          <h2>Hai bisogno di informazioni?</h2>
+
+          <p>
+            Contattaci per ricevere maggiori informazioni sulle
+            soluzioni disponibili.
+          </p>
+
+        </div>
+
+
+        <div class="contact-buttons">
+
+          <a
+            class="contact-btn email-btn"
+            href="mailto:creditoeuropa.it@gmail.com"
+          >
+            ✉ Email
+          </a>
+
+
+          <a
+            class="contact-btn whatsapp-btn"
+            href="https://wa.me/message/ZGDECNZC6RDRD1"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container footer-grid">
+
+      <div>
+
+        <div class="logo">
+
+          <div class="logo-symbol">
+            <span>€</span>
+          </div>
+
+          <span>CreditoEuropa</span>
+
+        </div>
+
+        <p>
+          Informazioni e strumenti di simulazione relativi a
+          soluzioni di finanziamento.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>Navigazione</h4>
+
+        <div class="footer-links">
+
+          <a href="#prestiti">Prestiti</a>
+
+          <a href="#simulatore">Simulatore</a>
+
+          <a href="#documenti">Documenti</a>
+
+          <a href="#contatti">Contatti</a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h4>Contatti</h4>
+
+        <div class="footer-links">
+
+          <a href="mailto:creditoeuropa.it@gmail.com">
+            creditoeuropa.it@gmail.com
+          </a>
+
+          <a
+            href="https://wa.me/message/ZGDECNZC6RDRD1"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 CreditoEuropa. Tutti i diritti riservati.
+    </div>
+
+
+    <!-- Bandiera italiana a tutta larghezza -->
+
+    <div class="italian-flag">
+
+      <div class="flag-green"></div>
+
+      <div class="flag-white"></div>
+
+      <div class="flag-red"></div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const importoInput = document.getElementById("importo");
+    const durataInput = document.getElementById("durata");
+
+    const importoDisplay =
+      document.getElementById("importoDisplay");
+
+    const rata =
+      document.getElementById("rata");
+
+    const resultImporto =
+      document.getElementById("resultImporto");
+
+    const resultDurata =
+      document.getElementById("resultDurata");
+
+    const totale =
+      document.getElementById("totale");
+
+
+    function formatEuro(value) {
+
+      return new Intl.NumberFormat("it-IT", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(value) + " €";
+
+    }
+
+
+    function formatEuroIntero(value) {
+
+      return new Intl.NumberFormat("it-IT", {
+        maximumFractionDigits: 0
+      }).format(value) + " €";
+
+    }
+
+
+    function calcolaPrestito() {
+
+      let capitale = Number(importoInput.value);
+
+      let mesi = Number(durataInput.value);
+
+      /*
+       * Tasso fisso utilizzato uniquement pour
+       * la simulazione: 5% annuo.
+       */
+
+      const tassoAnnuale = 0.05;
+
+      const tassoMensile = tassoAnnuale / 12;
+
+
+      let rataMensile;
+
+      if (tassoMensile === 0) {
+
+        rataMensile = capitale / mesi;
+
+      } else {
+
+        rataMensile =
+          capitale *
+          (
+            tassoMensile *
+            Math.pow(1 + tassoMensile, mesi)
+          )
+          /
+          (
+            Math.pow(1 + tassoMensile, mesi) - 1
+          );
+
+      }
+
+
+      const totalePagamento =
+        rataMensile * mesi;
+
+
+      importoDisplay.textContent =
+        formatEuroIntero(capitale);
+
+      rata.textContent =
+        formatEuro(rataMensile);
+
+      resultImporto.textContent =
+        formatEuroIntero(capitale);
+
+      resultDurata.textContent =
+        mesi + " mesi";
+
+      totale.textContent =
+        formatEuroIntero(totalePagamento);
+
+    }
+
+
+    importoInput.addEventListener(
+      "input",
+      calcolaPrestito
+    );
+
+    durataInput.addEventListener(
+      "change",
+      calcolaPrestito
+    );
+
+
+    document
+      .getElementById("tipoPrestito")
+      .addEventListener("change", function() {
+
+        /*
+         * Il tasso della simulazione rimane fisso
+         * al 5% per tutte le tipologie.
+         */
+
+        calcolaPrestito();
+
+      });
+
+
+    calcolaPrestito();
+
+  </script>
+
+</body>
+</html>
