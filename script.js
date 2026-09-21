@@ -25,7 +25,6 @@ const loanData = {
         defaultAmount: 20000,
 
         defaultMonths: 60
-
     },
 
 
@@ -44,7 +43,6 @@ const loanData = {
         defaultAmount: 15000,
 
         defaultMonths: 48
-
     },
 
 
@@ -63,7 +61,6 @@ const loanData = {
         defaultAmount: 10000,
 
         defaultMonths: 60
-
     }
 
 };
@@ -255,10 +252,8 @@ function updateLoanType() {
     amount.min =
         data.minAmount;
 
-
     amount.max =
         data.maxAmount;
-
 
     amount.value =
         data.defaultAmount;
@@ -269,8 +264,7 @@ function updateLoanType() {
      */
 
     amountInfo.textContent =
-        `Da ${formatNumber(data.minAmount)}
-        € a ${formatNumber(data.maxAmount)} €`;
+        `Da ${formatNumber(data.minAmount)} € a ${formatNumber(data.maxAmount)} €`;
 
 
     durationInfo.textContent =
@@ -303,6 +297,24 @@ function calculateLoan() {
         loanData[loanType.value];
 
 
+    /*
+     * IMPORTANT :
+     * Si le client est en train d'effacer
+     * le champ pour saisir un nouveau montant,
+     * on ne force PAS immédiatement le minimum.
+     */
+
+    if (
+        amount.value === ""
+        ||
+        amount.value === null
+    ) {
+
+        return;
+
+    }
+
+
     let principal =
         Number(amount.value);
 
@@ -312,16 +324,34 @@ function calculateLoan() {
 
 
     /*
-     * Sécurité montant minimum.
+     * Si la valeur n'est pas un nombre,
+     * on ne calcule pas.
      */
 
     if (
-        !principal ||
+        Number.isNaN(principal)
+        ||
+        principal <= 0
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * Sécurité montant minimum.
+     *
+     * Cette correction intervient uniquement
+     * si une valeur numérique inférieure au
+     * minimum est réellement saisie.
+     */
+
+    if (
         principal < data.minAmount
     ) {
 
-        principal =
-            data.minAmount;
+        return;
 
     }
 
@@ -334,14 +364,9 @@ function calculateLoan() {
         principal > data.maxAmount
     ) {
 
-        principal =
-            data.maxAmount;
+        return;
 
     }
-
-
-    amount.value =
-        principal;
 
 
     /*
@@ -349,22 +374,14 @@ function calculateLoan() {
      */
 
     if (
-        !months ||
+        !months
+        ||
         months < data.minMonths
-    ) {
-
-        months =
-            data.minMonths;
-
-    }
-
-
-    if (
+        ||
         months > data.maxMonths
     ) {
 
-        months =
-            data.maxMonths;
+        return;
 
     }
 
@@ -443,8 +460,83 @@ function calculateLoan() {
 
 
 /* =====================================================
+   VALIDATION DU MONTANT
+===================================================== */
+
+function validateAmount() {
+
+    const data =
+        loanData[loanType.value];
+
+
+    let principal =
+        Number(amount.value);
+
+
+    /*
+     * Si le champ est vide,
+     * on remet le montant par défaut
+     * uniquement lorsque le client quitte
+     * le champ.
+     */
+
+    if (
+        amount.value === ""
+        ||
+        Number.isNaN(principal)
+    ) {
+
+        amount.value =
+            data.defaultAmount;
+
+        calculateLoan();
+
+        return;
+
+    }
+
+
+    /*
+     * Montant inférieur au minimum.
+     */
+
+    if (
+        principal < data.minAmount
+    ) {
+
+        amount.value =
+            data.minAmount;
+
+    }
+
+
+    /*
+     * Montant supérieur au maximum.
+     */
+
+    if (
+        principal > data.maxAmount
+    ) {
+
+        amount.value =
+            data.maxAmount;
+
+    }
+
+
+    calculateLoan();
+
+}
+
+
+/* =====================================================
    EVENTS SIMULATEUR
 ===================================================== */
+
+
+/*
+ * Changement du type de prêt
+ */
 
 loanType.addEventListener(
     "change",
@@ -452,11 +544,67 @@ loanType.addEventListener(
 );
 
 
+/*
+ * Saisie du montant
+ *
+ * Le calcul se fait immédiatement
+ * uniquement lorsque la valeur est valide.
+ */
+
 amount.addEventListener(
     "input",
-    calculateLoan
+    function () {
+
+        if (
+            amount.value !== ""
+            &&
+            Number(amount.value) > 0
+        ) {
+
+            calculateLoan();
+
+        }
+
+    }
 );
 
+
+/*
+ * Lorsque le client quitte le champ,
+ * on vérifie les limites.
+ */
+
+amount.addEventListener(
+    "blur",
+    validateAmount
+);
+
+
+/*
+ * Touche Entrée
+ */
+
+amount.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            validateAmount();
+
+            amount.blur();
+
+        }
+
+    }
+);
+
+
+/*
+ * Changement de durée
+ */
 
 duration.addEventListener(
     "change",
@@ -482,52 +630,60 @@ const navigation =
     document.getElementById("navigation");
 
 
-menuToggle.addEventListener(
-    "click",
-    function () {
+if (
+    menuToggle
+    &&
+    navigation
+) {
 
-        const isOpen =
-            navigation.classList.toggle("active");
+    menuToggle.addEventListener(
+        "click",
+        function () {
 
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            isOpen
-        );
-
-    }
-);
+            const isOpen =
+                navigation.classList.toggle("active");
 
 
-/*
- * Fermer le menu après avoir
- * cliqué sur un lien.
- */
-
-document
-    .querySelectorAll("#navigation a")
-    .forEach(
-        function (link) {
-
-            link.addEventListener(
-                "click",
-                function () {
-
-                    navigation.classList.remove(
-                        "active"
-                    );
-
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
             );
 
         }
     );
+
+
+    /*
+     * Fermer le menu après avoir
+     * cliqué sur un lien.
+     */
+
+    document
+        .querySelectorAll("#navigation a")
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navigation.classList.remove(
+                            "active"
+                        );
+
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
 
 
 /* =====================================================
@@ -546,6 +702,17 @@ faqItems.forEach(
 
         const answer =
             item.querySelector(".faq-answer");
+
+
+        if (
+            !question
+            ||
+            !answer
+        ) {
+
+            return;
+
+        }
 
 
         question.addEventListener(
@@ -574,8 +741,12 @@ faqItems.forEach(
                             );
 
 
-                        otherAnswer.style.maxHeight =
-                            null;
+                        if (otherAnswer) {
+
+                            otherAnswer.style.maxHeight =
+                                null;
+
+                        }
 
                     }
                 );
@@ -585,7 +756,9 @@ faqItems.forEach(
                  * Ouvrir celui sélectionné.
                  */
 
-                if (!currentlyActive) {
+                if (
+                    !currentlyActive
+                ) {
 
                     item.classList.add(
                         "active"
@@ -609,7 +782,9 @@ faqItems.forEach(
 ===================================================== */
 
 document
-    .querySelectorAll(".btn, .contact-button, .card-button")
+    .querySelectorAll(
+        ".btn, .contact-button, .card-button"
+    )
     .forEach(
         function (button) {
 
@@ -622,6 +797,7 @@ document
 
                 }
             );
+
 
             button.addEventListener(
                 "mouseleave",
